@@ -304,6 +304,83 @@ nav .right a span {
     border-color: transparent black transparent transparent;
 }
 
+/* SECTION 6: PUBLICATIONS */
+/* === Publications Section === */
+#publications {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+#publications h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+}
+
+/* Grid responsive */
+.publications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Card de publication */
+.publication-card {
+    display: block;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.publication-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Métadonnées (venue + catégorie) */
+.pub-meta {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.pub-venue {
+    font-weight: bold;
+}
+
+.pub-category {
+    margin-left: 6px;
+    color: #888;
+}
+
+/* Titre de la publication */
+.pub-title {
+    font-size: 1.1rem;
+    margin: 0 0 12px;
+    line-height: 1.3;
+}
+
+/* Lien “View More” */
+.pub-more {
+    font-size: 0.85rem;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.pub-more::after {
+    content: " →";
+}
+
 
 
 /* ====================================== */
@@ -402,36 +479,37 @@ nav .right a span {
         padding-right: 25px;
     }
 
-.left .content::before {
-    content: "";
-    height: 0px;
-    position: absolute;
-    top: 21px;
-    width: 0px;
-    z-index: 1;
-    right: 100%;
-    left: unset;
-    border: 1px solid black;
-    border-width: 10px 10px 10px 0px;
-    border-color: transparent black transparent transparent;
-}
+    .left .content::before {
+        content: "";
+        height: 0px;
+        position: absolute;
+        top: 21px;
+        width: 0px;
+        z-index: 1;
+        right: 100%;
+        left: unset;
+        border: 1px solid black;
+        border-width: 10px 10px 10px 0px;
+        border-color: transparent black transparent transparent;
+    }
 
-.right .content::before {
-    content: "";
-    height: 0px;
-    position: absolute;
-    top: 21px;
-    width: 0px;
-    z-index: 1;
-    right: 100%;
-    border: 1px solid black;
-    border-width: 10px 10px 10px 0px;
-    border-color: transparent black transparent transparent;
-}
+    .right .content::before {
+        content: "";
+        height: 0px;
+        position: absolute;
+        top: 21px;
+        width: 0px;
+        z-index: 1;
+        right: 100%;
+        border: 1px solid black;
+        border-width: 10px 10px 10px 0px;
+        border-color: transparent black transparent transparent;
+    }
 
-.left::after, .right::after {
-    left: 30px;
-}
+    .left::after,
+    .right::after {
+        left: 30px;
+    }
 
     .right {
         left: 0%;
