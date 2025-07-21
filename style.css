@@ -418,6 +418,29 @@ nav .right a span {
     align-items: center;
 }
 
+/* SECTION 8: Footer */
+.footer {
+    width: 100%;
+    margin-top: 60px;
+    text-align: center;
+    position: relative;
+}
+
+.footer-line {
+    width: 200px;
+    height: 2px;
+    background: #4a76ee;
+    margin: 0 auto 16px auto;
+    border-radius: 2px;
+}
+
+.footer-text {
+    font-size: 18px;
+    color: #1a1c20;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
 /* Responsive : repasse en flex sur mobile */
 @media (max-width: 850px) {
     .interests-list {
