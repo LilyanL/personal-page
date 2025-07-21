@@ -9,7 +9,7 @@
     <link rel="" preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -202,44 +202,50 @@
         <section id="education" class="education">
             <h2>Education</h2>
             <div class="text">
-                Engineer‑Doctor in Surgical Robotics with advanced degrees in biomedical engineering and applied sciences, ranked top of class for multiple programs.
+                Engineer‑Doctor in Surgical Robotics with advanced degrees in biomedical engineering and applied
+                sciences, ranked top of class for multiple programs.
             </div>
 
             <div class="experience-cells">
 
                 <!-- Doctorate -->
-                <div class="container left">
+                <div class="container left" data-aos="fade-up">
                     <div class="content">
-                        <h2>2021 – 2025 | PhD in Surgical Robotics</h2>
-                        <p>Institut des Systèmes Intelligents et de Robotique, Sorbonne University</p>
+                        <h3 class="cell-title">2021 – 2025 | PhD in Surgical Robotics</h3>
+                        <p class="edu-location"><b>Institut des Systèmes Intelligents et de Robotique, Sorbonne
+                                University</b>
+                        </p>
                     </div>
                 </div>
 
                 <!-- University Diploma -->
-                <div class="container right">
+                <div class="container right" data-aos="fade-up">
                     <div class="content">
-                        <h2>2023 | University Diploma in Biomedical Engineering</h2>
-                        <p>Sorbonne University</p>
+                        <h3 class="cell-title">2023 | University Diploma in Biomedical Engineering</h3>
+                        <p class="edu-location"><b>Sorbonne Université</b></p>
                         <p>Funding, protection and valorization of research and biomedical innovation; Business
                             creation, financing and innovation strategy in a regulated medical environment.</p>
                     </div>
                 </div>
 
                 <!-- Master IRIV -->
-                <div class="container left">
+                <div class="container left" data-aos="fade-up">
                     <div class="content">
-                        <h2>2016 – 2018 | Master IRIV (Imaging, Robotics & Engineering for Living Systems)</h2>
-                        <p>Télécom Physique Strasbourg – University of Strasbourg</p>
+                        <h3 class="cell-title">2016 – 2018 | Master IRIV (Imaging, Robotics & Engineering for Living
+                            Systems)
+                        </h3>
+                        <p class="edu-location"><b>Télécom Physique Strasbourg – University of Strasbourg</b></p>
                         <p>Specialization in automation, robotics, computer vision, image processing and applied physics
                             for health. Graduated top of cohort.</p>
                     </div>
                 </div>
 
                 <!-- Engineering Degree -->
-                <div class="container right">
+                <div class="container right" data-aos="fade-up">
                     <div class="content">
-                        <h2>2015 – 2018 | Engineering Degree in Information Technologies for Health</h2>
-                        <p>Télécom Physique Strasbourg – University of Strasbourg</p>
+                        <h3 class="cell-title">2015 – 2018 | Engineering Degree in Information Technologies for Health
+                        </h3>
+                        <p class="edu-location"><b>Télécom Physique Strasbourg – University of Strasbourg</b></p>
                         <p>Focus on computer vision, automation, robotics, programming, biomechanics, signal processing
                             and applied physics. Ranked top of promotion.</p>
                     </div>
@@ -401,6 +407,16 @@
     <button id="back-to-top" title="Back to top">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 600,    // durée de l'animation en ms
+            easing: 'ease-out-quart',  // type d'accélération
+            once: true        // si true, n'anime qu'une seule fois
+        });
+    </script>
+
 </body>
 
 </html>

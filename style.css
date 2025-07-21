@@ -37,7 +37,7 @@ a {
     color: #fff;
     border: none;
     border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     cursor: pointer;
     display: none;
     align-items: center;
@@ -236,7 +236,7 @@ nav .right a span {
 }
 
 .work-experience {
-    
+
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
@@ -275,6 +275,7 @@ nav .right a span {
     padding: 10px 10px;
     position: relative;
 
+    z-index: 10;
     width: 50%;
 }
 
@@ -351,6 +352,20 @@ nav .right a span {
     margin-bottom: 20px;
 }
 
+.cell-title {
+    font-size: 22px;
+    color: darkblue;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.edu-location {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #222;
+}
+
 /* SECTION 6: PUBLICATIONS */
 /* === Publications Section === */
 /* SECTION 6: Publications */
@@ -373,7 +388,7 @@ nav .right a span {
 .publications-box {
     background: #f7f9fc;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     padding: 30px 20px;
     max-height: 60vh;
     overflow-y: auto;
@@ -388,9 +403,11 @@ nav .right a span {
     border-radius: 8px;
     margin-bottom: 18px;
     font-size: 20px;
-     width: 100%;         /* Étend sur toute la largeur */
+    width: 100%;
+    /* Étend sur toute la largeur */
     box-sizing: border-box;
-    text-align: left;    /* ou center si tu veux centrer le texte */
+    text-align: left;
+    /* ou center si tu veux centrer le texte */
 }
 
 .pub-type h3 {
@@ -404,7 +421,7 @@ nav .right a span {
     border-radius: 8px;
     padding: 16px 18px;
     margin-bottom: 18px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -507,7 +524,7 @@ nav .right a span {
     background: #f7f9fc;
     border-radius: 10px;
     padding: 24px 28px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     min-width: 120px;
 }
 
@@ -666,10 +683,5 @@ nav .right a span {
     .right {
         left: 0%;
     }
-
-
-
-
-
 
 }
