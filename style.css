@@ -306,79 +306,88 @@ nav .right a span {
 
 /* SECTION 6: PUBLICATIONS */
 /* === Publications Section === */
-#publications {
+/* SECTION 6: Publications */
+.publications {
     max-width: 900px;
     margin: 60px auto;
     padding: 0 20px;
 }
 
-#publications h2 {
+.publications h2 {
     text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 40px;
-    letter-spacing: 0.5px;
+    font-size: 32px;
+    margin-bottom: 30px;
 }
 
-/* Grid responsive */
-.publications-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-/* Card de publication */
-.publication-card {
-    display: block;
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    text-decoration: none;
-    color: inherit;
+.publications-box {
+    background: #f7f9fc;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    padding: 30px 20px;
+    max-height: 50vh;
+    overflow-y: auto;
     position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.publication-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+.pub-year {
+    background: #4a76ee;
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    font-size: 20px;
+    width: fit-content;
 }
 
-/* Métadonnées (venue + catégorie) */
-.pub-meta {
-    font-size: 0.9rem;
-    margin-bottom: 8px;
-    color: #555;
+.pub-type h3 {
+    margin: 0 0 10px 0;
+    font-size: 22px;
+    color: #1a1c20;
 }
 
-.pub-venue {
-    font-weight: bold;
+.pub-item {
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
-.pub-category {
-    margin-left: 6px;
-    color: #888;
-}
-
-/* Titre de la publication */
 .pub-title {
-    font-size: 1.1rem;
-    margin: 0 0 12px;
-    line-height: 1.3;
+    font-size: 18px;
+    color: #4a76ee;
+    font-weight: 600;
+    text-decoration: none;
 }
 
-/* Lien “View More” */
-.pub-more {
-    font-size: 0.85rem;
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    color: #007BFF;
-    font-weight: bold;
+.pub-title:hover {
+    text-decoration: underline;
 }
 
-.pub-more::after {
-    content: " →";
+.pub-authors,
+.pub-ref {
+    font-size: 15px;
+    color: #444;
+}
+
+.pub-links {
+    margin-top: 6px;
+    display: flex;
+    gap: 12px;
+}
+
+.pub-links a {
+    color: #4a76ee;
+    font-size: 20px;
+    transition: color 0.2s;
+}
+
+.pub-links a:hover {
+    color: #1a1c20;
 }
 
 
