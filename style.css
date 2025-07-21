@@ -236,9 +236,16 @@ nav .right a span {
 }
 
 .work-experience {
+    
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.work-experience h2 {
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .experience-cells {
@@ -247,6 +254,8 @@ nav .right a span {
     max-width: 1200px;
     margin: 0 auto;
 }
+
+
 
 .experience-cells::after {
     content: "";
@@ -328,6 +337,18 @@ nav .right a span {
     border: 1px solid black;
     border-width: 10px 10px 10px 0px;
     border-color: transparent black transparent transparent;
+}
+
+.education h2 {
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.education .text {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 /* SECTION 6: PUBLICATIONS */
