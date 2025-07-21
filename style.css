@@ -396,7 +396,74 @@ nav .right a span {
     color: #1a1c20;
 }
 
+/* SECTION 7: Interests */
+.interests {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
 
+.interests h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.interests-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 32px;
+    justify-items: center;
+    align-items: center;
+}
+
+/* Responsive : repasse en flex sur mobile */
+@media (max-width: 850px) {
+    .interests-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.interest {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    background: #f7f9fc;
+    border-radius: 10px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    min-width: 120px;
+}
+
+.interest i {
+    font-size: 36px;
+    color: #4a76ee;
+}
+
+.interest image {
+    font-size: 36px;
+    color: #4a76ee;
+}
+
+.interest span {
+    font-size: 18px;
+    color: #1a1c20;
+    font-weight: 500;
+    text-align: center;
+}
+
+.interest img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    display: block;
+}
 
 /* ====================================== */
 /* REACTIVE DESIGN */
