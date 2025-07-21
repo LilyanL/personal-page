@@ -328,7 +328,7 @@ nav .right a span {
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     padding: 30px 20px;
-    max-height: 50vh;
+    max-height: 60vh;
     overflow-y: auto;
     position: relative;
 }
