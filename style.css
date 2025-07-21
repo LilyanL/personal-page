@@ -313,6 +313,10 @@ nav .right a span {
     padding: 0 20px;
 }
 
+
+
+
+
 .publications h2 {
     text-align: center;
     font-size: 32px;
@@ -337,7 +341,9 @@ nav .right a span {
     border-radius: 8px;
     margin-bottom: 18px;
     font-size: 20px;
-    width: fit-content;
+     width: 100%;         /* Étend sur toute la largeur */
+    box-sizing: border-box;
+    text-align: left;    /* ou center si tu veux centrer le texte */
 }
 
 .pub-type h3 {
