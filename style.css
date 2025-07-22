@@ -83,19 +83,18 @@ nav .right a span {
 /* SECTION NAVBAR (vertical sidebar for sections) */
 .section-navbar {
     position: fixed;
-    top: 50%;
+    top: 30%;
     right: 0;
     transform: translateY(-50%);
-    width: 70px;
-    background: #fff;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.07);
+  
+
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 24px 0 24px 0;
     z-index: 1200;
     gap: 18px;
-    border-radius: 18px 0 0 18px;
+ 
 }
 /* Prevent main content from being hidden behind the section-navbar */
 @media (min-width: 601px) {
@@ -120,11 +119,24 @@ nav .right a span {
     transition: background 0.2s, color 0.2s, box-shadow 0.2s;
     position: relative;
 }
-.section-navbar a:hover {
-    background: #4a76ee;
-    color: #fff;
-    box-shadow: 0 2px 8px rgba(74,118,238,0.18);
+.section-navbar a.active {
+    background: #fff;
+    color: #4a76ee;
+    box-shadow: 0 2px 12px rgba(74,118,238,0.18), 0 0 0 2px #4a76ee33;
+    z-index: 2;
+    border: 2px solid #e0e6f7;
+    
+
+    padding: 30px 0 30px 0;
+    gap: 18px;
+    border-radius: 18px 0 0 18px;
+    width: 70px;
 }
+.section-navbar a:hover {
+    background: #fff;
+    color: #4a76ee;
+    box-shadow: 0 2px 8px rgba(74,118,238,0.18);
+}*/
 @media (max-width: 900px) {
     .section-navbar {
         width: 54px;
