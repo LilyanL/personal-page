@@ -329,11 +329,11 @@ nav .right a span {
 .content {
     margin: 20px;
     padding: 20px;
-    background-color: lightgray;
+    background-color: #f7f9fc; /* matches publications and interests */
     position: relative;
-    border-radius: 6px;
-
-    border: 1px solid black;
+    border-radius: 12px; /* more rounded, matches other cards */
+    border: 1px solid #e0e4ea; /* soft, light border */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* subtle shadow for depth */
 }
 
 .content p {
