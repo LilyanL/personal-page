@@ -27,7 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
      *
      * Assumes the existence of global `sections` and `sectionLinks` arrays.
      */
+    let isScrollingToSection = false;
+    let scrollTimeout = null;
+
     function activateCurrentSection() {
+        if (isScrollingToSection) return;
         let index = 0;
         const scrollPos = window.scrollY + window.innerHeight / 2.5;
         for (let i = 0; i < sections.length; i++) {
@@ -45,13 +49,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    window.addEventListener('scroll', activateCurrentSection);
+    window.addEventListener('scroll', function() {
+        if (isScrollingToSection) {
+            // Debounce: wait for scroll to finish
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(function() {
+                isScrollingToSection = false;
+                activateCurrentSection();
+            }, 120);
+        } else {
+            activateCurrentSection();
+        }
+    });
 
-    // Also update on click for instant feedback
     sectionLinks.forEach((link, i) => {
-        link.addEventListener('click', function() {
-            sectionLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
+        link.addEventListener('click', function(e) {
+            // Only handle anchor links
+            if (sections[i]) {
+                e.preventDefault();
+                isScrollingToSection = true;
+                sectionLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                sections[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Fallback: after a delay, allow scroll handler again
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(function() {
+                    isScrollingToSection = false;
+                    activateCurrentSection();
+                }, 800);
+            }
         });
     });
 
