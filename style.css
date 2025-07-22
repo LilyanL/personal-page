@@ -87,7 +87,7 @@ nav .right a span {
 /* SECTION NAVBAR (vertical sidebar for sections) */
 .section-navbar {
     position: fixed;
-    top: 30%;
+    top: 20%;
     right: 0;
     transform: translateY(-50%);
 
