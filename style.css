@@ -93,9 +93,18 @@ nav .right a span {
     flex-direction: column;
     align-items: center;
     padding: 24px 0 24px 0;
-    z-index: 2000;
+    z-index: 1200;
     gap: 18px;
     border-radius: 18px 0 0 18px;
+}
+/* Prevent main content from being hidden behind the section-navbar */
+@media (min-width: 601px) {
+    main {
+        margin-right: 90px;
+    }
+    #back-to-top {
+        right: 90px;
+    }
 }
 .section-navbar a {
     color: var(--text-color);
@@ -141,9 +150,16 @@ nav .right a span {
         justify-content: center;
         gap: 8px;
         border-radius: 0;
+        transform: none;
     }
     .section-navbar a {
         margin-bottom: 0;
+    }
+    main {
+        margin-right: 0;
+    }
+    #back-to-top {
+        right: 32px;
     }
 }
 
