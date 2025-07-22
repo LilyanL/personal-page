@@ -71,7 +71,7 @@ nav .left a {
 
 nav .right a {
     color: var(--text-color);
-    margin: 0 10 px;
+    margin: 0 10px;
 }
 
 nav .right a:last-child {
@@ -609,7 +609,30 @@ nav .right a span {
 
 }
 
+@media (max-width: 800px) {
 
+    /*NAVBAR*/
+    nav {
+        padding: 0 20px;
+    }
+
+    nav .left a {
+        font-size: 22px;
+    }
+
+    nav .right a {
+        font-size: 22px;
+    }
+
+    nav .right a:last-child {
+        color: var(--text-color);
+        background-color: transparent;
+        padding: 0;
+    }
+
+    nav .right a span {
+        display: none;
+    }
 
 @media (max-width: 600px) {
 
