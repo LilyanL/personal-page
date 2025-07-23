@@ -69,6 +69,35 @@ body {
     background-color: var(--background-color);
 }
 
+/* CV Download Buttons */
+.cv-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 18px;
+    justify-content: center;
+}
+.cv-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #4a76ee;
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 17px;
+    box-shadow: 0 2px 8px rgba(74, 118, 238, 0.10);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.cv-btn:hover {
+    background: #1a1c20;
+    color: #fff;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 4px 16px rgba(74, 118, 238, 0.18);
+    text-decoration: none;
+}
+
 
 /* Style for all anchor links */
 a {
