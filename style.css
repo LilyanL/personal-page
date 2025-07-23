@@ -1,3 +1,14 @@
+/* FAROS project link hover effect */
+a[href*="h2020faros.eu"] {
+    color: #0077cc;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+a[href*="h2020faros.eu"]:hover {
+    color: #1a1c20;
+    text-decoration: underline;
+}
 .edu-location a {
     color: inherit;
     text-decoration: none;
