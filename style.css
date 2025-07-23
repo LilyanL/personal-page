@@ -34,6 +34,14 @@ a[href*="h2020faros.eu"]:hover {
     border: 2px solid #e0e4ea;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     z-index: 2;
+    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+.entity-logo-topright:hover {
+    box-shadow: 0 4px 16px rgba(74, 118, 238, 0.18), 0 2px 8px rgba(0,0,0,0.10);
+    transform: scale(1.08) rotate(-4deg);
+    border-color: #4a76ee;
+    cursor: pointer;
 }
 
 .content {
