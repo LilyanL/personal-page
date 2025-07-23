@@ -511,6 +511,12 @@ nav .right a span {
     border-color: transparent black transparent transparent;
 }
 
+
+.education {
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 0 20px;
+}
 .education h2 {
     font-size: 35px;
     text-align: center;
@@ -543,7 +549,7 @@ nav .right a span {
 /* SECTION 6: Publications */
 .publications {
     max-width: 900px;
-    margin: 60px auto;
+    margin: 100px auto;
     padding: 0 20px;
 }
 
@@ -635,7 +641,7 @@ nav .right a span {
 /* SECTION 7: Interests */
 .interests {
     max-width: 900px;
-    margin: 60px auto;
+    margin: 100px auto 200px auto;
     padding: 0 20px;
 }
 
