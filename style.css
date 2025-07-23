@@ -5,10 +5,12 @@ a[href*="h2020faros.eu"] {
     text-decoration: none;
     transition: color 0.2s, text-decoration 0.2s;
 }
+
 a[href*="h2020faros.eu"]:hover {
     color: #1a1c20;
     text-decoration: underline;
 }
+
 .edu-location a {
     color: inherit;
     text-decoration: none;
@@ -19,6 +21,7 @@ a[href*="h2020faros.eu"]:hover {
     color: #1a1c20;
     text-decoration: underline;
 }
+
 .entity-logo-topright {
     position: absolute;
     top: 18px;
@@ -29,13 +32,14 @@ a[href*="h2020faros.eu"]:hover {
     object-fit: scale-down;
     background: #fff;
     border: 2px solid #e0e4ea;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     z-index: 2;
 }
 
 .content {
     position: relative;
 }
+
 :root {
     --text-color: #1a1c20;
     --link-color: #4a76ee;
@@ -60,7 +64,7 @@ body {
 
 /* Style for all anchor links */
 a {
-    text-decoration: none; 
+    text-decoration: none;
     /* color: var(--link-color); */
     color: inherit;
 }
@@ -368,13 +372,18 @@ nav .right a span {
 .content {
     margin: 20px;
     padding: 20px;
-    padding-top: 18px; /* reduced to bring title higher */
+    padding-top: 18px;
+    /* reduced to bring title higher */
     padding-right: 90px;
-    background-color: #f7f9fc; /* matches publications and interests */
+    background-color: #f7f9fc;
+    /* matches publications and interests */
     position: relative;
-    border-radius: 12px; /* more rounded, matches other cards */
-    border: 1px solid #e0e4ea; /* soft, light border */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* subtle shadow for depth */
+    border-radius: 12px;
+    /* more rounded, matches other cards */
+    border: 1px solid #e0e4ea;
+    /* soft, light border */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    /* subtle shadow for depth */
 }
 
 .content p {
@@ -529,6 +538,7 @@ nav .right a span {
     margin: 100px auto;
     padding: 0 20px;
 }
+
 .education h2 {
     font-size: 35px;
     text-align: center;
@@ -546,7 +556,8 @@ nav .right a span {
     color: darkblue;
     margin-bottom: 8px;
     letter-spacing: 1px;
-    margin-top: 2px; /* move title higher in the cell */
+    margin-top: 2px;
+    /* move title higher in the cell */
 }
 
 .edu-location {
