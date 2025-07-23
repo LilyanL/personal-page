@@ -337,6 +337,12 @@ nav .right a span {
 /* SECTION 2: about */
 .about {
     padding: 0 50px;
+    margin-left: auto;
+    /* Center the section */
+    margin-right: auto;
+    /* Center the section */
+    max-width: 800px;
+    
     margin-bottom: 100px;
 }
 
