@@ -458,7 +458,8 @@ nav .right a span {
     background-color: #4a76ee;
     border-color: #1a1c20;
     box-shadow: 0 0 12px #4a76ee55;
-    transition: background 0.2s, border 0.2s, box-shadow 0.2s;
+    transition: background 0.2s, border 0.2s, box-shadow 0.2s, transform 0.2s;
+    transform: translateY(-4px);
 }
 
 /*TODO: Fix the circle position*/
