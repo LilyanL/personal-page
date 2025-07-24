@@ -1,3 +1,42 @@
+/* === SOFT SKILLS ICON GRID === */
+.soft-skills-section {
+  margin: 60px auto;
+  max-width: 700px;
+  text-align: center;
+}
+.soft-skills-section h3 {
+  font-size: 1.5rem;
+  color: var(--link-color);
+  margin-bottom: 24px;
+}
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+  gap: 24px;
+}
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.icon-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+.icon-item i {
+  font-size: 1.8rem;
+  color: var(--link-color);
+}
+.icon-item span {
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
 /* --- Hard Skills Row: Technical & Theoretical side by side --- */
 .hard-skills-row {
   display: flex;
