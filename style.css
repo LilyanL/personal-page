@@ -469,67 +469,6 @@ nav .right a span {
     color: var(--link-color);
 }
 
-/* ==== 3. Languages ==== */
-.lang-list {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    padding: 0;
-    margin: 12px 0 0;
-    justify-content: center;
-}
-.lang-list li {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.95rem;
-    color: var(--text-color);
-}
-.lang-list .flag {
-    font-size: 1.4rem;
-}
-.lang-list small {
-    color: #555;
-    font-size: 0.8rem;
-}
-
-/* === LANGUAGES SECTION: Bigger flags and text === */
-.lang-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.lang-list li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.25rem;
-  margin-bottom: 12px;
-  padding-left: 0;
-  justify-content: flex-start;
-  width: 100%;
-}
-.lang-list .fi {
-  font-size: 2.2em;
-  line-height: 1;
-  margin-right: 10px;
-  min-width: 2.2em;
-  text-align: left;
-}
-.lang-list span {
-  font-size: 1.15em;
-  font-weight: 600;
-  text-align: left;
-}
-.lang-list small {
-  font-size: 1.05em;
-  color: #555;
-  margin-left: 8px;
-}
 /* === SOFT SKILLS ICON GRID === */
 .soft-skills-section {
   margin: 60px auto;
@@ -608,6 +547,7 @@ nav .right a span {
   align-items: center;
   width: 90px;
 }
+
 .circular-progress {
   position: relative;
   width: 72px;
@@ -651,6 +591,51 @@ nav .right a span {
   color: var(--text-color);
   text-align: center;
 }
+
+/* ==== 3. Languages ==== */
+.lang-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 0;
+    margin: 12px 0 0;
+    justify-content: center;
+}
+.lang-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    margin-bottom: 12px;
+     padding-left: 0;
+  justify-content: flex-start;
+  width: 100%;
+    color: var(--text-color);
+}
+.lang-list .flag {
+    font-size: 1.4rem;
+}
+.lang-list small {
+  font-size: 1.05em;
+  color: #555;
+  margin-left: 8px;
+}
+
+.lang-list .fi {
+  font-size: 2.2em;
+  line-height: 1;
+  margin-right: 10px;
+  min-width: 2.2em;
+  text-align: left;
+}
+.lang-list span {
+  font-size: 1.15em;
+  font-weight: 600;
+  text-align: left;
+}
+
+
 
 
 
