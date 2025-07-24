@@ -618,6 +618,16 @@ nav .right a span {
     stroke-dashoffset: 25;
 }
 
+.circular-progress[data-percent="70"] .circle {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 30;
+}
+
+.circular-progress[data-percent="60"] .circle {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 40;
+}
+
 .circular-label {
     position: absolute;
     top: 50%;
