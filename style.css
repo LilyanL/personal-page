@@ -19,6 +19,7 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  margin-top: 24px;
   padding: 16px;
   background: #fff;
   border-radius: 8px;
@@ -36,6 +37,7 @@
 .icon-item span {
   font-size: 0.9rem;
   color: var(--text-color);
+  text-align: center;
 }
 /* --- Hard Skills Row: Technical & Theoretical side by side --- */
 .hard-skills-row {
