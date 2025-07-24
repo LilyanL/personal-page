@@ -1,3 +1,39 @@
+/* === LANGUAGES SECTION: Bigger flags and text === */
+.lang-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.lang-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  padding-left: 0;
+  justify-content: flex-start;
+  width: 100%;
+}
+.lang-list .fi {
+  font-size: 2.2em;
+  line-height: 1;
+  margin-right: 10px;
+  min-width: 2.2em;
+  text-align: left;
+}
+.lang-list span {
+  font-size: 1.15em;
+  font-weight: 600;
+  text-align: left;
+}
+.lang-list small {
+  font-size: 1.05em;
+  color: #555;
+  margin-left: 8px;
+}
 /* === SOFT SKILLS ICON GRID === */
 .soft-skills-section {
   margin: 60px auto;
