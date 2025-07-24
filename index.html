@@ -18,6 +18,10 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
+    <!-- Flag Icons by Lipis -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.1/css/flag-icons.min.css">
+
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 
@@ -114,44 +118,133 @@
 
 
         <!-- SECTION 3: Skills -->
-        <section id="skills" class="skills">
+<section id="skills" class="skills">
+  <h2>Skills</h2>
+  <div class="skills-mainbox">
 
-            <h2>Skills</h2>
-            <div class="text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                    et
-                    dolore magna aliqua.</p>
+    <!-- 1. Hard Skills -->
+    <div class="skills-subsection skills-bg-hard">
+      <div class="skills-card-content">
+        <h3>Hard Skills</h3>
+        <div class="hard-skills-row">
+          <!-- Technical Skills (left) -->
+          <div class="hard-col technical">
+            <h4>Technical Skills</h4>
+            <div class="skill-bars technical">
+                
+              <div class="skill-bar"><span>C++ <span class="skill-percent">70%</span></span><div class="bar"><div class="fill" style="width:70%"></div></div></div>
+              
+              <div class="skill-bar"><span>ROS2 <span class="skill-percent">75%</span></span><div class="bar"><div class="fill" style="width:75%"></div></div></div>
+
+              <div class="skill-bar"><span>MATLAB <span class="skill-percent">80%</span></span><div class="bar"><div class="fill" style="width:80%"></div></div></div>
+
+              <div class="skill-bar"><span>Python <span class="skill-percent">40%</span></span><div class="bar"><div class="fill" style="width:40%"></div></div></div>
 
             </div>
-
-            <div class="skills-cells">
-
-                <div class="skill-cell">
-                    <img src="images/html-logo.webp" alt="HTML Logo">
-                    <span> HTML </span>
+          </div>
+          <!-- Theoretical Skills (right, circular) -->
+          <div class="hard-col theoretical">
+            <h4>Theoretical Skills</h4>
+            <div class="circular-skills">
+              <div class="circular-skill">
+                <div class="circular-progress" data-percent="90">
+                  <svg viewBox="0 0 36 36">
+                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 1 1 0 31.831 a 15.9155 15.9155 0 1 1 0 -31.831"/>
+                    <path class="circle" d="M18 2.0845 a 15.9155 15.9155 0 1 1 0 31.831 a 15.9155 15.9155 0 1 1 0 -31.831"/>
+                  </svg>
+                  <span class="circular-label">90%</span>
                 </div>
-
-                <div class="skill-cell">
-                    <img src="images/css-logo.webp" alt="CSS Logo">
-                    <span> CSS </span>
+                <div class="circular-skill-name">Control Theory</div>
+              </div>
+              <div class="circular-skill">
+                <div class="circular-progress" data-percent="80">
+                  <svg viewBox="0 0 36 36">
+                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 1 1 0 31.831 a 15.9155 15.9155 0 1 1 0 -31.831"/>
+                    <path class="circle" d="M18 2.0845 a 15.9155 15.9155 0 1 1 0 31.831 a 15.9155 15.9155 0 1 1 0 -31.831"/>
+                  </svg>
+                  <span class="circular-label">80%</span>
                 </div>
-
-                <div class="skill-cell">
-                    <img src="images/javascript-logo.webp" alt="JavaScript Logo">
-                    <span> JavaScript </span>
+                <div class="circular-skill-name">3D Image Registration</div>
+              </div>
+              <div class="circular-skill">
+                <div class="circular-progress" data-percent="75">
+                  <svg viewBox="0 0 36 36">
+                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 1 1 0 31.831 a 15.9155 15.9155 0 1 1 0 -31.831"/>
+                    <path class="circle" d="M18 2.0845 a 15.9155 15.9155 0 1 1 0 31.831 a 15.9155 15.9155 0 1 1 0 -31.831"/>
+                  </svg>
+                  <span class="circular-label">75%</span>
                 </div>
+                <div class="circular-skill-name">Numerical Simulation</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-                <div class="skill-cell">
-                    <img src="images/react-logo.webp" alt="React Logo">
-                    <span> React </span>
-                </div>
+    <!-- 2. Soft Skills -->
+    <div class="skills-subsection skills-bg-soft">
+      <div class="skills-card-content">
+        <h3>Soft Skills</h3>
+        <div class="icon-grid">
+          <div class="icon-item">
+            <i class="fas fa-list-check"></i>
+            <span>Project Management</span>
+          </div>
+          <div class="icon-item">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <span>Teaching &amp; Mentoring</span>
+          </div>
+          <div class="icon-item">
+            <i class="fas fa-hands-helping"></i>
+            <span>Interdisciplinary Collaboration</span>
+          </div>
+          <div class="icon-item">
+            <i class="fas fa-pen-fancy"></i>
+            <span>Scientific Communication</span>
+          </div>
+          <div class="icon-item">
+            <i class="fas fa-project-diagram"></i>
+            <span>Agile Management</span>
+          </div>
+          <div class="icon-item">
+            <i class="fas fa-brain"></i>
+            <span>Critical Thinking</span>
+          </div>
+          <div class="icon-item">
+            <i class="fas fa-users"></i>
+            <span>Teamwork</span>
+          </div>
+          <div class="icon-item">
+            <i class="fas fa-heart"></i>
+            <span>Emotional Intelligence</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-                <div class="skill-cell">
-                    <img src="images/node-logo.webp" alt="Node.js Logo">
-                    <span> Node.js </span>
-                </div>
+    <!-- 3. Languages -->
+    <div class="skills-subsection skills-bg-lang">
+      <div class="skills-card-content">
+        <h3>Languages</h3>
+        <ul class="lang-list">
+          <li data-aos="fade-up"><span class="fi fi-fr"></span><span>French</span><small>Native</small></li>
+          <li data-aos="fade-up" data-aos-delay="100"><span class="fi fi-gb"></span><span>English</span><small>Fluent (C1+)</small></li>
+          <li data-aos="fade-up" data-aos-delay="200"><span class="fi fi-de"></span><span>German</span><small>Intermediate (B1)</small></li>
+          <li data-aos="fade-up" data-aos-delay="300"><span class="fi fi-es"></span><span>Spanish</span><small>Basic (A2)</small></li>
+        </ul>
+      </div>
+    </div>
 
-        </section>
+  </div>
+</section>
+
+
+
+
+
+
+
 
         <!-- SECTION 4: Work experience -->
         <section id="work-experience" class="work-experience">
