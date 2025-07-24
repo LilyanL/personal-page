@@ -1104,6 +1104,14 @@ a[href*="h2020faros.eu"]:hover {
     padding: 24px 28px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     min-width: 120px;
+    width: 100%;
+    max-width: 180px;
+}
+
+.interest:hover {
+    box-shadow: 0 4px 16px rgba(74, 118, 238, 0.18), 0 2px 8px rgba(0,0,0,0.10);
+    background: #eaf3ff;
+    transform: translateY(-4px) scale(1.04);
 }
 
 .interest i {
