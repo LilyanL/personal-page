@@ -1,3 +1,83 @@
+/* --- Hard Skills Row: Technical & Theoretical side by side --- */
+.hard-skills-row {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 18px;
+}
+.hard-col {
+  flex: 2 1 0;
+  min-width: 0;
+}
+.hard-col.technical {
+  margin-right: 18px;
+}
+.hard-col.theoretical {
+    flex: 3 1 0;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 18px;
+}
+.circular-skills {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 12px;
+}
+.circular-skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90px;
+}
+.circular-progress {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 8px;
+}
+.circular-progress svg {
+  width: 72px;
+  height: 72px;
+  transform: rotate(-90deg);
+}
+.circle-bg {
+  fill: none;
+  stroke: #e0e4ea;
+  stroke-width: 3.5;
+}
+.circle {
+  fill: none;
+  stroke: var(--link-color);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-dasharray: 100, 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 1s ease;
+}
+.circular-progress[data-percent="90"] .circle { stroke-dasharray: 100; stroke-dashoffset: 10; }
+.circular-progress[data-percent="80"] .circle { stroke-dasharray: 100; stroke-dashoffset: 20; }
+.circular-progress[data-percent="75"] .circle { stroke-dasharray: 100; stroke-dashoffset: 25; }
+.circular-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.1rem;
+  color: var(--link-color);
+  font-weight: 600;
+}
+.circular-skill-name {
+  margin-top: 2px;
+  font-size: 0.95rem;
+  color: var(--text-color);
+  text-align: center;
+}
 
 /* FAROS project link hover effect */
 a[href*="h2020faros.eu"] {
@@ -455,10 +535,20 @@ nav .right a span {
 }
 /* Label avant chaque barre */
 .skill-bar span {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
     font-size: 0.95rem;
     color: var(--text-color);
     margin-bottom: 4px;
+}
+
+.skill-percent {
+    font-size: 0.93em;
+    color: var(--link-color);
+    font-weight: 600;
+    margin-left: 8px;
+    align-self: flex-end;
 }
 /* Fond de la barre */
 .skill-bar .bar {

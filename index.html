@@ -120,46 +120,53 @@
 
     <!-- 1. Hard Skills -->
     <div class="skills-subsection skills-bg-hard">
-      <div class="skills-icon"><i class="fa-solid fa-microchip"></i></div>
       <div class="skills-card-content">
         <h3>Hard Skills</h3>
-
-        <!-- Technical Skills -->
-        <div class="hard-subsection">
-          <h4>Technical Skills</h4>
-          <div class="skill-bars technical">
-            <div class="skill-bar" data-aos="fade-right">
-              <span>C++</span>
-              <div class="bar"><div class="fill" style="width:70%"></div></div>
-            </div>
-            <div class="skill-bar" data-aos="fade-right" data-aos-delay="100">
-              <span>Python</span>
-              <div class="bar"><div class="fill" style="width:40%"></div></div>
-            </div>
-            <div class="skill-bar" data-aos="fade-right" data-aos-delay="200">
-              <span>ROS2</span>
-              <div class="bar"><div class="fill" style="width:75%"></div></div>
-            </div>
-            <div class="skill-bar" data-aos="fade-right" data-aos-delay="300">
-              <span>MATLAB</span>
-              <div class="bar"><div class="fill" style="width:80%"></div></div>
+        <div class="hard-skills-row">
+          <!-- Technical Skills (left) -->
+          <div class="hard-col technical">
+            <h4>Technical Skills</h4>
+            <div class="skill-bars technical">
+              <div class="skill-bar"><span>C++ <span class="skill-percent">70%</span></span><div class="bar"><div class="fill" style="width:70%"></div></div></div>
+              <div class="skill-bar"><span>Python <span class="skill-percent">40%</span></span><div class="bar"><div class="fill" style="width:40%"></div></div></div>
+              <div class="skill-bar"><span>ROS2 <span class="skill-percent">75%</span></span><div class="bar"><div class="fill" style="width:75%"></div></div></div>
+              <div class="skill-bar"><span>MATLAB <span class="skill-percent">80%</span></span><div class="bar"><div class="fill" style="width:80%"></div></div></div>
             </div>
           </div>
-
-          <!-- Theoretical Skills -->
-          <h4>Theoretical Skills</h4>
-          <div class="skill-bars theoretical">
-            <div class="skill-bar" data-aos="fade-right">
-              <span>Control Theory</span>
-              <div class="bar"><div class="fill" style="width:85%"></div></div>
-            </div>
-            <div class="skill-bar" data-aos="fade-right" data-aos-delay="100">
-              <span>3D Image Registration</span>
-              <div class="bar"><div class="fill" style="width:80%"></div></div>
-            </div>
-            <div class="skill-bar" data-aos="fade-right" data-aos-delay="200">
-              <span>Numerical Simulation</span>
-              <div class="bar"><div class="fill" style="width:75%"></div></div>
+          <!-- Theoretical Skills (right, circular) -->
+          <div class="hard-col theoretical">
+            <h4>Theoretical Skills</h4>
+            <div class="circular-skills">
+              <div class="circular-skill">
+                <div class="circular-progress" data-percent="90">
+                  <svg viewBox="0 0 36 36">
+                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 1 1 0 31.831 a 15.9155 15.9155 0 1 1 0 -31.831"/>
+                    <path class="circle" d="M18 2.0845 a 15.9155 15.9155 0 1 1 0 31.831 a 15.9155 15.9155 0 1 1 0 -31.831"/>
+                  </svg>
+                  <span class="circular-label">90%</span>
+                </div>
+                <div class="circular-skill-name">Control Theory</div>
+              </div>
+              <div class="circular-skill">
+                <div class="circular-progress" data-percent="80">
+                  <svg viewBox="0 0 36 36">
+                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 1 1 0 31.831 a 15.9155 15.9155 0 1 1 0 -31.831"/>
+                    <path class="circle" d="M18 2.0845 a 15.9155 15.9155 0 1 1 0 31.831 a 15.9155 15.9155 0 1 1 0 -31.831"/>
+                  </svg>
+                  <span class="circular-label">80%</span>
+                </div>
+                <div class="circular-skill-name">3D Image Registration</div>
+              </div>
+              <div class="circular-skill">
+                <div class="circular-progress" data-percent="75">
+                  <svg viewBox="0 0 36 36">
+                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 1 1 0 31.831 a 15.9155 15.9155 0 1 1 0 -31.831"/>
+                    <path class="circle" d="M18 2.0845 a 15.9155 15.9155 0 1 1 0 31.831 a 15.9155 15.9155 0 1 1 0 -31.831"/>
+                  </svg>
+                  <span class="circular-label">75%</span>
+                </div>
+                <div class="circular-skill-name">Numerical Simulation</div>
+              </div>
             </div>
           </div>
         </div>
@@ -168,7 +175,6 @@
 
     <!-- 2. Soft Skills -->
     <div class="skills-subsection skills-bg-soft">
-      <div class="skills-icon"><i class="fa-solid fa-users"></i></div>
       <div class="skills-card-content">
         <h3>Soft Skills</h3>
         <ul class="soft-list">
@@ -182,7 +188,6 @@
 
     <!-- 3. Languages -->
     <div class="skills-subsection skills-bg-lang">
-      <div class="skills-icon"><i class="fa-solid fa-language"></i></div>
       <div class="skills-card-content">
         <h3>Languages</h3>
         <ul class="lang-list">
