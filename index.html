@@ -5,54 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Favicon Marvin -->
+    <link rel="icon" type="image/webp" href="images/robot-arm.webp">
 
-    <link rel="" preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
+    <!-- Flag Icons by Lipis -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.1/css/flag-icons.min.css">
+
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 
     <title>Lilyan Leblanc</title>
 </head>
 
+
 <body>
 
-    <!-- NAVBAR -->
+    <!-- NAVBAR (top, external links only) -->
     <nav class="navbar">
         <div class="left">
             <a href="/" class="logo">Lilyan Leblanc</a>
-
         </div>
-
         <div class="right">
-
-            <a href="https://github.com/LilyanL" target="_blank" rel="noopener noreferrer>
-                <i class=" fa-brands fa-github"></i>
-                <span class="tooltip">GitHub</span>
-            </a>
-
-
-
-            <a href="https://www.linkedin.com/in/lilyan-leblanc" target="_blank" rel="noopener noreferrer>
-
-                <i class=" fa-brands fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/lilyan-leblanc" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin"></i>
                 <span class="tooltip">LinkedIn</span>
             </a>
-
-            <a href="mailto:lilyan.leblanc@gmail.com" target="_blank" rel="noopener noreferrer>
-
-                <i class=" fa-solid fa-envelope"></i>
+            <a href="https://scholar.google.com/citations?user=J-FB9BEAAAAJ&hl=fr" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-brands fa-google-scholar"></i>
+                <span class="tooltip">Google Scholar</span>
+            </a>
+            <a href="https://github.com/LilyanL" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github"></i>
+                <span class="tooltip">GitHub</span>
+            </a>
+            <a href="mailto:lilyan.leblanc@gmail.com" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-envelope"></i>
                 <span class="tooltip">Email</span>
             </a>
-
-
         </div>
+    </nav>
 
+    <!-- SECTION NAVBAR (vertical sidebar) -->
+    <nav class="section-navbar">
+        <a href="#about" title="About"><i class="fa-solid fa-user"></i></a>
+        <a href="#skills" title="Skills"><i class="fa-solid fa-code"></i></a>
+        <a href="#work-experience" title="Work Experience"><i class="fa-solid fa-briefcase"></i></a>
+        <a href="#education" title="Education"><i class="fa-solid fa-graduation-cap"></i></a>
+        <a href="#publications" title="Publications"><i class="fa-solid fa-book"></i></a>
+        <a href="#interests" title="Interests"><i class="fa-solid fa-heart"></i></a>
     </nav>
 
     <main>
@@ -60,52 +72,24 @@
         <!-- SECTION 1: Hero -->
         <section class="hero">
             <div class="text">
-                <h2> Hi, I'm John. </h2>
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt placeat consequuntur in iste
-                    nostrum vel velit harum, facere iusto dicta dolores minima accusantium a esse ad assumenda
-                    doloribus! Corrupti harum illo quod voluptate repudiandae nesciunt sapiente magni placeat ab vero
-                    beatae alias hic sequi recusandae maxime dignissimos saepe ex accusamus cumque, sit quam adipisci!
-                    Minus minima qui labore facilis, molestiae magni. Doloribus, fuga commodi quidem vitae iste laborum
-                    harum ipsum, ea saepe laudantium, ducimus quis!</p>
-
-
-                <div class="links">
-                    <a href="#about">
-                        <i class="fa-solid fa-code"></i>
-                        <span class="tooltip">Skills</span>
-                    </a>
-
-                    <a href="#skills">
-                        <i class="fa-solid fa-briefcase"></i>
-                        <span class="tooltip">Work Experience</span>
-                    </a>
-
-                    <a href="#education">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        <span class="tooltip">Education</span>
-                    </a>
-
-                    <a href="#publications">
-                        <i class="fa-solid fa-book"></i>
-                        <span class="tooltip">Publications</span>
-                    </a>
-
-                    <a href="#interests">
-                        <i class="fa-solid fa-heart"></i>
-                        <span class="tooltip">Interests</span>
-                    </a>
-
-                    <a href="#contact">
-                        <i class="fa-solid fa-envelope"></i>
-                        <span class="tooltip">Contact</span>
-                    </a>
-
+                <div class="greeting">
+                    Hello there, I'm
                 </div>
-
+                <h2> Lilyan </h2>
+                <div class="headline"> Surgical Robotics Engineer </div>
             </div>
 
             <div class="headshot">
-                <img src="images/hero-headshot.webp" alt="Profile Picture">
+                <img src="images/headshot.webp" alt="Profile Picture" />
+                <div class="cv-buttons">
+                    <a href="cv/CV_Lilyan_Leblanc_FR.pdf" download class="cv-btn" title="Télécharger le CV (FR)">
+                        <i class="fa-solid fa-file-arrow-down"></i> CV (FR)
+                    </a>
+                    <a href="cv/CV_Lilyan_Leblanc_EN.pdf" download class="cv-btn" title="Download CV (EN)">
+                        <i class="fa-solid fa-file-arrow-down"></i> CV (EN)
+                    </a>
+                </div>
+            </div>
 
         </section>
 
@@ -114,8 +98,23 @@
         <section id="about" class="about">
             <div class="text">
                 <h2>About Me</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua.</p>
+                <p> I'm a medical technology engineer holding an engineering diploma and a Master's in Imaging, Robotics
+                    and Life Sciences, topped by a PhD in Surgical Robotics from Sorbonne Université. 
+                </p>
+                
+                 <br>
+                <p>
+                    During my doctoral
+                    work, I developed application-driven robotic assistance solutions for spine surgery—bridging
+                    scientific research and real-world clinical challenges. In industry, I've complemented my R&D
+                    background with hands-on medical device quality validation under ISO 13485, ensuring that innovation
+                    meets the highest standards. </p>
+
+                <br>
+                <p> I thrive at the intersection of technological innovation and healthcare needs, and outside the lab I
+                    stay curious and disciplined as an assistant freediving instructor, competitive triathlete, and
+                    cinema enthusiast.</p>
+
             </div>
 
         </section>
@@ -125,58 +124,540 @@
 
         <!-- SECTION 3: Skills -->
         <section id="skills" class="skills">
-
             <h2>Skills</h2>
+            <div class="skills-mainbox">
+
+                <!-- 1. Hard Skills -->
+                <div class="skills-subsection skills-bg-hard">
+                    <div class="skills-card-content">
+                        <h3>Hard Skills</h3>
+                        <div class="hard-skills-row">
+                            <!-- Technical Skills (left) -->
+                            <div class="hard-col technical">
+                                <h4>Technical Skills</h4>
+                                <div class="skill-bars technical">
+
+                                    <div class="skill-bar"><span>C++ <span class="skill-percent">70%</span></span>
+                                        <div class="bar">
+                                            <div class="fill" style="width:70%"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="skill-bar"><span>ROS2 <span class="skill-percent">75%</span></span>
+                                        <div class="bar">
+                                            <div class="fill" style="width:75%"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="skill-bar"><span>MATLAB <span class="skill-percent">80%</span></span>
+                                        <div class="bar">
+                                            <div class="fill" style="width:80%"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="skill-bar"><span>Python <span class="skill-percent">40%</span></span>
+                                        <div class="bar">
+                                            <div class="fill" style="width:40%"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- Theoretical Skills (right, circular) -->
+                            <div class="hard-col theoretical">
+                                <h4>Theoretical Skills</h4>
+                                <div class="circular-skills">
+
+                                    <div class="circular-skill">
+                                        <div class="circular-progress" data-percent="70">
+                                            <svg viewBox="0 0 36 36">
+                                                <path class="circle-bg"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 1 1 0 31.831 a 15.9155 15.9155 0 1 1 0 -31.831" />
+                                                <path class="circle"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 1 1 0 31.831 a 15.9155 15.9155 0 1 1 0 -31.831" />
+                                            </svg>
+                                            <span class="circular-label">70%</span>
+                                        </div>
+                                        <div class="circular-skill-name">Robotics</div>
+                                    </div>
+
+                                    <div class="circular-skill">
+                                        <div class="circular-progress" data-percent="70">
+                                            <svg viewBox="0 0 36 36">
+                                                <path class="circle-bg"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 1 1 0 31.831 a 15.9155 15.9155 0 1 1 0 -31.831" />
+                                                <path class="circle"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 1 1 0 31.831 a 15.9155 15.9155 0 1 1 0 -31.831" />
+                                            </svg>
+                                            <span class="circular-label">70%</span>
+                                        </div>
+                                        <div class="circular-skill-name">Control Theory</div>
+                                    </div>
+
+                                    <div class="circular-skill">
+                                        <div class="circular-progress" data-percent="60">
+                                            <svg viewBox="0 0 36 36">
+                                                <path class="circle-bg"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 1 1 0 31.831 a 15.9155 15.9155 0 1 1 0 -31.831" />
+                                                <path class="circle"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 1 1 0 31.831 a 15.9155 15.9155 0 1 1 0 -31.831" />
+                                            </svg>
+                                            <span class="circular-label">60%</span>
+                                        </div>
+                                        <div class="circular-skill-name">3D Image Registration</div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Soft Skills -->
+                <div class="skills-subsection skills-bg-soft">
+                    <div class="skills-card-content">
+                        <h3>Soft Skills</h3>
+                        <div class="icon-grid">
+                            <div class="icon-item">
+                                <i class="fas fa-list-check"></i>
+                                <span>Project Management</span>
+                            </div>
+                            <div class="icon-item">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <span>Teaching &amp; Mentoring</span>
+                            </div>
+                            <div class="icon-item">
+                                <i class="fas fa-hands-helping"></i>
+                                <span>Interdisciplinary Collaboration</span>
+                            </div>
+                            <div class="icon-item">
+                                <i class="fas fa-pen-fancy"></i>
+                                <span>Scientific Communication</span>
+                            </div>
+                            <div class="icon-item">
+                                <i class="fas fa-project-diagram"></i>
+                                <span>Agile Management</span>
+                            </div>
+                            <div class="icon-item">
+                                <i class="fas fa-brain"></i>
+                                <span>Critical Thinking</span>
+                            </div>
+                            <div class="icon-item">
+                                <i class="fas fa-users"></i>
+                                <span>Teamwork</span>
+                            </div>
+                            <div class="icon-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Emotional Intelligence</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Languages -->
+                <div class="skills-subsection skills-bg-lang">
+                    <div class="skills-card-content">
+                        <h3>Languages</h3>
+                        <ul class="lang-list">
+                            <li><span
+                                    class="fi fi-fr"></span><span>French</span><small>Native</small></li>
+                            <li data-aos-delay="100"><span
+                                    class="fi fi-gb"></span><span>English</span><small>Fluent (C1+)</small></li>
+                            <li data-aos-delay="200"><span
+                                    class="fi fi-de"></span><span>German</span><small>Intermediate (B1)</small></li>
+                            <li data-aos-delay="300"><span
+                                    class="fi fi-es"></span><span>Spanish</span><small>Basic (A2)</small></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+        <!-- SECTION 4: Work experience -->
+        <section id="work-experience" class="work-experience">
+            <h2>Work Experience</h2>
             <div class="text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                    et
-                    dolore magna aliqua.</p>
 
             </div>
 
-            <div class="skills-cells">
+            <div class="experience-cells">
 
-                <div class="skill-cell">
-                    <img src="images/html-logo.webp" alt="HTML Logo">
-                    <span> HTML </span>
+                <!-- Expérience la plus récente -->
+                <div class="container left" data-aos="fade-up">
+                    <div class="content">
+                        <a href="https://www.sorbonne-universite.fr/en" target="_blank" rel="noopener noreferrer">
+                            <img class="entity-logo-topright" src="images/entities-logos/SU.webp" alt="SU logo" />
+                        </a>
+                        <h3 class="cell-title">2021 – 2025 | Surgical Robotics Researcher</h3>
+                        <p class="edu-location">
+                            <b>
+                                <a href="https://www.sorbonne-universite.fr/en" target="_blank"
+                                    rel="noopener noreferrer">Sorbonne Université</a>,
+                                <a href="https://www.isir.upmc.fr/?lang=en" target="_blank"
+                                    rel="noopener noreferrer">Institut des Systèmes Intelligents et de Robotique</a> -
+                                Paris (France)
+                            </b>
+                        </p>
+                        <ul class="xp-list">
+                            <li>Developed C++/ROS2 modules for automatic breach detection in pedicle screw placement.
+                            </li>
+                            <li>Designed 3D image registration pipelines for surgical planning (MATLAB, Python).</li>
+                            <li>Conducted experimental validations on ex‑vivo, animal, cadaveric and in‑vivo models.
+                            </li>
+                            <li>Taught experimental robotics, control theory and C programming to master’s students.
+                            </li>
+                            <li>Filed a patent on statistical perforation detection methods.</li>
+                            <li>
+                                Coordinated
+                                <a href="https://h2020faros.eu/" target="_blank" rel="noopener noreferrer">
+                                    EU H2020 FAROS
+                                </a>
+                                tasks with international academic & industry partners.
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="skill-cell">
-                    <img src="images/css-logo.webp" alt="CSS Logo">
-                    <span> CSS </span>
+                <!-- Expérience précédente -->
+                <div class="container right" data-aos="fade-up">
+                    <div class="content">
+                        <a href="https://www.zimmerbiomet.com/en/products-and-solutions/zb-edge/robotics.html"
+                            target="_blank" rel="noopener noreferrer">
+                            <img class="entity-logo-topright" src="images/entities-logos/ZBR.webp"
+                                alt="Zimmer Biomet logo" />
+                        </a>
+                        <h3 class="cell-title">2018 - 2021 | Surgical Robotics Engineer</h3>
+                        <p class="edu-location">
+                            <b>
+                                <a href="https://www.zimmerbiomet.com/en/products-and-solutions/zb-edge/robotics.html"
+                                    target="_blank" rel="noopener noreferrer">Zimmer Biomet Robotics - Montpellier
+                                    (France)</a>
+                            </b>
+                        </p>
+                        <ul class="xp-list">
+                            <li>Built calibration solutions for serial robots (C++, VAL3).</li>
+                            <li>Improved robotic accuracy via chain-of-error analysis.</li>
+                            <li>Performed ISO 13485 quality activities (NCR, CAPA, CSV).</li>
+                            <li>Led small-scale R&D projects from spec to validation.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="skill-cell">
-                    <img src="images/javascript-logo.webp" alt="JavaScript Logo">
-                    <span> JavaScript </span>
-                </div>
+            </div>
 
-                <div class="skill-cell">
-                    <img src="images/react-logo.webp" alt="React Logo">
-                    <span> React </span>
-                </div>
-
-                <div class="skill-cell">
-                    <img src="images/node-logo.webp" alt="Node.js Logo">
-                    <span> Node.js </span>
-                </div>
 
         </section>
 
-        <!-- SECTION 4: Work experience -->
-
 
         <!-- SECTION 5: Education -->
+        <section id="education" class="education">
+            <h2>Education</h2>
+            <div class="text">
+                Engineer-Doctor in Surgical Robotics with advanced degrees in biomedical engineering and applied
+                sciences, ranked top of class for multiple programs.
+            </div>
+
+            <div class="experience-cells">
+
+                <!-- Doctorate -->
+                <div class="container left" data-aos="fade-up">
+                    <div class="content">
+                        <a href="https://www.sorbonne-universite.fr/en" target="_blank" rel="noopener noreferrer">
+                            <img class="entity-logo-topright" src="images/entities-logos/SU.webp" alt="SU logo" />
+                        </a>
+                        <h3 class="cell-title">2021 - 2025 | PhD in Surgical Robotics</h3>
+                        <p class="edu-location">
+                            <b>
+                                <a href="https://www.sorbonne-universite.fr/en" target="_blank"
+                                    rel="noopener noreferrer">Sorbonne Université</a>,
+                                <a href="https://www.isir.upmc.fr/?lang=en" target="_blank"
+                                    rel="noopener noreferrer">Institut des Systèmes Intelligents et de Robotique</a> -
+                                Paris (France)
+                            </b>
+                        </p>
+                        <ul class="xp-list">
+                            <li>Doctoral research in surgical robotics, focusing on robotic assistance for spine
+                                surgery.</li>
+                            <li>Developed novel methods for breach detection and 3D image registration.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- University Diploma -->
+                <div class="container right" data-aos="fade-up">
+                    <div class="content">
+                        <a href="https://www.sorbonne-universite.fr/en" target="_blank" rel="noopener noreferrer">
+                            <img class="entity-logo-topright" src="images/entities-logos/SU.webp" alt="SU logo" />
+                        </a>
+                        <h3 class="cell-title">2023 | University Diploma in Biomedical Engineering</h3>
+                        <p class="edu-location"><b> <a href="https://www.sorbonne-universite.fr/en" target="_blank"
+                                    rel="noopener noreferrer">Sorbonne Université</a> - Paris (France)</b></p>
+                        <ul class="xp-list">
+                            <li>Funding, protection and valorization of research and biomedical innovation.</li>
+                            <li>Business creation, financing and innovation strategy in a regulated medical environment.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Master IRIV -->
+                <div class="container left" data-aos="fade-up">
+                    <div class="content">
+                        <a href="https://www.unistra.fr/en" target="_blank" rel="noopener noreferrer">
+                            <img class="entity-logo-topright" src="images/entities-logos/Unistra.webp"
+                                alt="University of Strasbourg logo" />
+                        </a>
+                        <h3 class="cell-title">2016 - 2018 | Master IRIV (Imaging, Robotics & Engineering for Living
+                            Systems)</h3>
+                        <p class="edu-location">
+                            <b>
+                                <a href="https://www.unistra.fr/en" target="_blank" rel="noopener noreferrer">
+                                    University of Strasbourg
+                                </a> - Strasbourg (France)
+                            </b>
+                        </p>
+                        <ul class="xp-list">
+                            <li>Specialization in automation, robotics, computer vision, image processing and applied
+                                physics for health.</li>
+                            <li>Graduated first in class with honors.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Engineering Degree -->
+                <div class="container right" data-aos="fade-up">
+                    <div class="content">
+                        <a href="https://www.telecom-physique.fr/en/school/about-us/" target="_blank"
+                            rel="noopener noreferrer">
+                            <img class="entity-logo-topright" src="images/entities-logos/TPS.webp"
+                                alt="Télécom Physique Strasbourg logo" />
+                        </a>
+                        <h3 class="cell-title">2015 - 2018 | Engineering Degree in Information Technologies for Health
+                        </h3>
+                        <p class="edu-location">
+                            <b>
+                                <a href="https://www.telecom-physique.fr/en/school/about-us/" target="_blank"
+                                    rel="noopener noreferrer">
+                                    Télécom Physique Strasbourg
+                                </a> - Strasbourg (France)
+                            </b>
+                        </p>
+                        <ul class="xp-list">
+                            <li>Focus on computer vision, automation, robotics, programming, biomechanics, signal
+                                processing and applied physics.</li>
+                            <li>Graduated first in class with honors.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Preparatory Class -->
+                <div class="container left" data-aos="fade-up">
+                    <div class="content">
+                        <a href="https://www.lycee-kleber.com/" target="_blank" rel="noopener noreferrer">
+                            <img class="entity-logo-topright" src="images/entities-logos/Kleber.webp"
+                                alt="Lycée Kléber logo" />
+                        </a>
+                        <h3 class="cell-title">2016 - 2018 | Master IRIV (Imaging, Robotics & Engineering for Living
+                            Systems)</h3>
+                        <p class="edu-location">
+                            <b>
+                                <a href="https://lycee-kleber.com.fr/cpge-scientifiques/" target="_blank"
+                                    rel="noopener noreferrer">
+                                    Lycée Kléber
+                                </a> - Strasbourg (France)
+                            </b>
+                        </p>
+                        <ul class="xp-list">
+                            <li>Highly selective post-high-school program in Mathematics, Physics and Computer Theory.
+                            </li>
+                            <li>Equivalent to the first two years of a university Bachelor's in mathematics, physics and
+                                computer science.</li>
+                            <li>Intensive focus on problem-solving and theoretical foundations.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
 
         <!-- SECTION 6: Publications -->
+        <section id="publications" class="publications">
+            <h2>Publications</h2>
+            <div class="publications-box">
+                <!-- Année 2025 -->
+                <div class="pub-year">
+                    <span>2025</span>
+                </div>
+
+                <div class="pub-type">
+                    <h3>Thesis</h3>
+                </div>
+                
+                <div class="pub-item">
+                    <a href="https://theses.fr/2025SORUS034" class="pub-title" target="_blank">Vers un placement assisté par robot des vis
+                        pédiculaires en chirurgie rachidienne</a>
+                    <div class="pub-authors">Author: <b>Lilyan Leblanc</b></div>
+                    <div class="pub-ref">Sorbonne Université</div>
+                    <div class="pub-links">
+                        <a href="https://theses.hal.science/tel-05110043" target="_blank" title="PDF"><i class="fa-solid fa-file-pdf"></i></a>
+                        <a href="https://theses.hal.science/tel-05110043v1/bibtex" target="_blank" title="BibTeX"><i class="fa-solid fa-book"></i></a>
+                    </div>
+                </div>
+
+                <div class="pub-type">
+                    <h3>Patent</h3>
+                </div>
+
+                <div class="pub-item">
+                    <a href="https://patentscope.wipo.int/search/en/WO2025021956" class="pub-title" target="_blank">Statistical methods and systems for detecting
+                        perforations during surgical drilling based on sensed electrical characteristics</a>
+                    <div class="pub-authors">Authors: <b>Lilyan Leblanc</b>, Brahim Tamadazte, Thibault Chandanson, Elie
+                        Saghbiny</div>
+                    <div class="pub-ref">Patent Application US18/784,828</div>
+                    <div class="pub-links">
+                        <!-- Add PDF/BibTeX links if available -->
+                    </div>
+                </div>
+
+                
+
+                <!-- Année 2024 -->
+                <div class="pub-year">
+                    <span>2024</span>
+                </div>
+
+                <div class="pub-type">
+                    <h3>Journal papers</h3>
+                </div>
+
+                <div class="pub-item">
+                    <a href="https://inrap.hal.science/TDS-MACS/hal-04460474v1" class="pub-title" target="_blank">Automatic spinal canal breach detection during pedicle
+                        screw placement</a>
+                    <div class="pub-authors">Authors: <b>Lilyan Leblanc</b>, Elie Saghbini, Jimmy Da Silva, Antoine
+                        Harlé, Saman Vafadar, Thibault Chandanson, Raphaël Vialle, Guillaume Morel, Brahim Tamadazte</div>
+                    <div class="pub-ref">IEEE Robotics and Automation Letters, 2024, 9 (2), pp.1915-1922. 10.1109/LRA.2024.3349947. hal-04460474</div>
+                    <div class="pub-links">
+                        <a href="https://hal.science/hal-04460474/file/RAL_2024_Pedicle_Screw_Placement.pdf" target="_blank" title="PDF"><i class="fa-solid fa-file-pdf"></i></a>
+                        <a href="https://hal.science/hal-04460474v1/bibtex" target="_blank" title="BibTeX"><i class="fa-solid fa-book"></i></a>
+                    </div>
+                </div>
+
+                <div class="pub-item">
+                    <a href="https://hal-lara.archives-ouvertes.fr/ISIR_RPI-BIO/hal-04606977v1" class="pub-title" target="_blank">Breach detection in spine surgery based on cutting
+                        torque</a>
+                    <div class="pub-authors">Authors: Elie Saghbiny, <b>Lilyan Leblanc</b>, Antoine Harlé, Christina
+                        Bobbio, Raphaël Vialle, Guillaume Morel, Brahim Tamadazte</div>
+                    <div class="pub-ref">IEEE Transactions on Medical Robotics and Bionics, vol. 6, no. 3, pp. 1084-1092, Aug. 2024, doi : 10.1109 TMRB.2024.3421543.</div>
+                    <div class="pub-links">
+                        <a href="https://hal.science/hal-04346410/file/CRAS2023_Torque.pdf" target="_blank" title="PDF"><i class="fa-solid fa-file-pdf"></i></a>
+                        <a href="https://hal.science/hal-04606977v1/bibtex" target="_blank" title="BibTeX"><i class="fa-solid fa-book"></i></a>
+                    </div>
+                </div>
+                <div class="pub-type">
+                    <h3>Conference papers</h3>
+                </div>
+
+                <div class="pub-item">
+                    <a href="https://hal.sorbonne-universite.fr/ISIR_RPI-BIO/hal-04661996v1" class="pub-title" target="_blank">Pedicle Drilling Planning Transfer for Spine Surgery
+                        Using Functional Map Correspondences</a>
+                    <div class="pub-authors">Authors: <b>Lilyan Leblanc</b>, Raphael Vialle, Cristiana De Farias, Elie
+                        Saghbiny, Naresh Marturi, Brahim Tamadazte</div>
+                    <div class="pub-ref">2024 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2024), IEEE, Oct 2024, Abu Dhabi, United Arab Emirates. hal-04661996</div>
+                    <div class="pub-links">
+                        <a href="https://hal.science/hal-04661996v1/file/2024_Iros.pdf" target="_blank" title="PDF"><i class="fa-solid fa-file-pdf"></i></a>
+                        <a href="https://hal.science/hal-04661996v1/bibtex" target="_blank" title="BibTeX"><i class="fa-solid fa-book"></i></a>
+                    </div>
+                </div>
+
+                <!-- Année 2023 -->
+                <div class="pub-year">
+                    <span>2023</span>
+                </div>
+
+                <div class="pub-type">
+                    <h3>Conference papers</h3>
+                </div>
+
+                <div class="pub-item">
+                    <a href="https://dumas.ccsd.cnrs.fr/ISIR_AGATHE/hal-04346410v1" class="pub-title" target="_blank">Breach detection in spine surgery based on cutting
+                        torque with ex-vivo experimental validation</a>
+                    <div class="pub-authors">Authors: Elie Saghbiny, Jimmy Da Silva, <b>Lilyan Leblanc</b>, Christina
+                        Bobbio, Guillaume G. Morel, Raphaël Vialle, Brahim Tamadazte</div>
+                    <div class="pub-ref">in 12th edition of Conference on New Technologies for Computer and Robot Assisted Surgery (CRAS 2023)</div>
+                    <div class="pub-links">
+                        <a href="https://hal.science/hal-04346410/file/CRAS2023_Torque.pdf" target="_blank" title="PDF"><i class="fa-solid fa-file-pdf"></i></a>
+                        <a href="https://hal.science/hal-04346410v1/bibtex" target="_blank" title="BibTeX"><i class="fa-solid fa-book"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
         <!-- SECTION 7: Interests -->
+        <section id="interests" class="interests">
+            <h2>Interests</h2>
+            <div class="interests-list">
+                <div class="interest">
+                    <img src="images/activities/mermaid-tail.webp" alt="Freediving">
+                    <span>Freediving </span>
+                </div>
+                <div class="interest">
+                    <img src="images/activities/scuba.webp" alt="Scuba Diving">
+                    <span>Scuba Diving</span>
+                </div>
+                <div class="interest">
+                    <i class="fa-solid fa-person-running"></i>
+                    <span>Triathlon</span>
+                </div>
+                <div class="interest">
+                    <i class="fa-solid fa-film"></i>
+                    <span>Cinema</span>
+                </div>
+                <div class="interest">
+                    <i class="fa-solid fa-masks-theater"></i>
+                    <span>Theater</span>
+                </div>
+                <div class="interest">
+                    <i class="fa-solid fa-music"></i>
+                    <span>Dance</span>
+                </div>
+            </div>
+        </section>
 
-
-        <!-- SECTION 8: Footer (contact) -->
 
     </main>
+
+    <!-- SECTION 8: Footer (contact) -->
+    <footer class="footer">
+        <div class="footer-line"></div>
+        <div class="footer-text">Lilyan Leblanc - PhD in Robotics</div>
+
+    </footer>
+
+    <!-- Add just before </body> -->
+    <button id="back-to-top" title="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 600,    // durée de l'animation en ms
+            easing: 'ease-out-quart',  // type d'accélération
+            once: true        // si true, n'anime qu'une seule fois
+        });
+    </script>
+
 </body>
 
 </html>
