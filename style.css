@@ -1,207 +1,3 @@
-/* === LANGUAGES SECTION: Bigger flags and text === */
-.lang-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.lang-list li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.25rem;
-  margin-bottom: 12px;
-  padding-left: 0;
-  justify-content: flex-start;
-  width: 100%;
-}
-.lang-list .fi {
-  font-size: 2.2em;
-  line-height: 1;
-  margin-right: 10px;
-  min-width: 2.2em;
-  text-align: left;
-}
-.lang-list span {
-  font-size: 1.15em;
-  font-weight: 600;
-  text-align: left;
-}
-.lang-list small {
-  font-size: 1.05em;
-  color: #555;
-  margin-left: 8px;
-}
-/* === SOFT SKILLS ICON GRID === */
-.soft-skills-section {
-  margin: 60px auto;
-  max-width: 700px;
-  text-align: center;
-}
-.soft-skills-section h3 {
-  font-size: 1.5rem;
-  color: var(--link-color);
-  margin-bottom: 24px;
-}
-.icon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
-  gap: 24px;
-}
-.icon-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  margin-top: 24px;
-  padding: 16px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.icon-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-}
-.icon-item i {
-  font-size: 1.8rem;
-  color: var(--link-color);
-}
-.icon-item span {
-  font-size: 0.9rem;
-  color: var(--text-color);
-  text-align: center;
-}
-/* --- Hard Skills Row: Technical & Theoretical side by side --- */
-.hard-skills-row {
-  display: flex;
-  flex-direction: row;
-  gap: 0px;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-top: 18px;
-}
-.hard-col {
-  flex: 2 1 0;
-  min-width: 0;
-}
-.hard-col.technical {
-  margin-right: 18px;
-}
-.hard-col.theoretical {
-    flex: 3 1 0;
-    display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 18px;
-}
-.circular-skills {
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 12px;
-}
-.circular-skill {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 90px;
-}
-.circular-progress {
-  position: relative;
-  width: 72px;
-  height: 72px;
-  margin-bottom: 8px;
-}
-.circular-progress svg {
-  width: 72px;
-  height: 72px;
-  transform: rotate(-90deg);
-}
-.circle-bg {
-  fill: none;
-  stroke: #e0e4ea;
-  stroke-width: 3.5;
-}
-.circle {
-  fill: none;
-  stroke: var(--link-color);
-  stroke-width: 3.5;
-  stroke-linecap: round;
-  stroke-dasharray: 100, 100;
-  stroke-dashoffset: 100;
-  transition: stroke-dashoffset 1s ease;
-}
-.circular-progress[data-percent="90"] .circle { stroke-dasharray: 100; stroke-dashoffset: 10; }
-.circular-progress[data-percent="80"] .circle { stroke-dasharray: 100; stroke-dashoffset: 20; }
-.circular-progress[data-percent="75"] .circle { stroke-dasharray: 100; stroke-dashoffset: 25; }
-.circular-label {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.1rem;
-  color: var(--link-color);
-  font-weight: 600;
-}
-.circular-skill-name {
-  margin-top: 2px;
-  font-size: 0.95rem;
-  color: var(--text-color);
-  text-align: center;
-}
-
-/* FAROS project link hover effect */
-a[href*="h2020faros.eu"] {
-    color: #0077cc;
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.2s, text-decoration 0.2s;
-}
-
-a[href*="h2020faros.eu"]:hover {
-    color: #1a1c20;
-    text-decoration: underline;
-}
-
-.edu-location a {
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.2s, text-decoration 0.2s;
-}
-
-.edu-location a:hover {
-    color: #1a1c20;
-    text-decoration: underline;
-}
-
-.entity-logo-topright {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    object-fit: scale-down;
-    background: #fff;
-    border: 2px solid #e0e4ea;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    z-index: 2;
-    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
-}
-
-.entity-logo-topright:hover {
-    box-shadow: 0 4px 16px rgba(74, 118, 238, 0.18), 0 2px 8px rgba(0,0,0,0.10);
-    transform: scale(1.08) rotate(-4deg);
-    border-color: #4a76ee;
-    cursor: pointer;
-}
-
 .content {
     position: relative;
 }
@@ -698,6 +494,163 @@ nav .right a span {
     font-size: 0.8rem;
 }
 
+/* === LANGUAGES SECTION: Bigger flags and text === */
+.lang-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.lang-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  padding-left: 0;
+  justify-content: flex-start;
+  width: 100%;
+}
+.lang-list .fi {
+  font-size: 2.2em;
+  line-height: 1;
+  margin-right: 10px;
+  min-width: 2.2em;
+  text-align: left;
+}
+.lang-list span {
+  font-size: 1.15em;
+  font-weight: 600;
+  text-align: left;
+}
+.lang-list small {
+  font-size: 1.05em;
+  color: #555;
+  margin-left: 8px;
+}
+/* === SOFT SKILLS ICON GRID === */
+.soft-skills-section {
+  margin: 60px auto;
+  max-width: 700px;
+  text-align: center;
+}
+.soft-skills-section h3 {
+  font-size: 1.5rem;
+  color: var(--link-color);
+  margin-bottom: 24px;
+}
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+  gap: 24px;
+}
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.icon-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+.icon-item i {
+  font-size: 1.8rem;
+  color: var(--link-color);
+}
+.icon-item span {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  text-align: center;
+}
+/* --- Hard Skills Row: Technical & Theoretical side by side --- */
+.hard-skills-row {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 18px;
+}
+.hard-col {
+  flex: 2 1 0;
+  min-width: 0;
+}
+.hard-col.technical {
+  margin-right: 18px;
+}
+.hard-col.theoretical {
+    flex: 3 1 0;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 18px;
+}
+.circular-skills {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 12px;
+}
+.circular-skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90px;
+}
+.circular-progress {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 8px;
+}
+.circular-progress svg {
+  width: 72px;
+  height: 72px;
+  transform: rotate(-90deg);
+}
+.circle-bg {
+  fill: none;
+  stroke: #e0e4ea;
+  stroke-width: 3.5;
+}
+.circle {
+  fill: none;
+  stroke: var(--link-color);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-dasharray: 100, 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 1s ease;
+}
+.circular-progress[data-percent="90"] .circle { stroke-dasharray: 100; stroke-dashoffset: 10; }
+.circular-progress[data-percent="80"] .circle { stroke-dasharray: 100; stroke-dashoffset: 20; }
+.circular-progress[data-percent="75"] .circle { stroke-dasharray: 100; stroke-dashoffset: 25; }
+.circular-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.1rem;
+  color: var(--link-color);
+  font-weight: 600;
+}
+.circular-skill-name {
+  margin-top: 2px;
+  font-size: 0.95rem;
+  color: var(--text-color);
+  text-align: center;
+}
 
 
 
@@ -901,6 +854,53 @@ nav .right a span {
     margin-bottom: 6px;
     color: #222;
 }
+
+.edu-location a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+
+.edu-location a:hover {
+    color: #1a1c20;
+    text-decoration: underline;
+}
+
+.entity-logo-topright {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: scale-down;
+    background: #fff;
+    border: 2px solid #e0e4ea;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    z-index: 2;
+    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+.entity-logo-topright:hover {
+    box-shadow: 0 4px 16px rgba(74, 118, 238, 0.18), 0 2px 8px rgba(0,0,0,0.10);
+    transform: scale(1.08) rotate(-4deg);
+    border-color: #4a76ee;
+    cursor: pointer;
+}
+
+/* FAROS project link hover effect */
+a[href*="h2020faros.eu"] {
+    color: #0077cc;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+
+a[href*="h2020faros.eu"]:hover {
+    color: #1a1c20;
+    text-decoration: underline;
+}
+
 
 /* SECTION 6: PUBLICATIONS */
 /* === Publications Section === */
