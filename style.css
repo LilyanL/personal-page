@@ -30,6 +30,7 @@ body {
     margin-top: 18px;
     justify-content: center;
 }
+
 .cv-btn {
     display: flex;
     align-items: center;
@@ -44,6 +45,7 @@ body {
     box-shadow: 0 2px 8px rgba(74, 118, 238, 0.10);
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
+
 .cv-btn:hover {
     background: #1a1c20;
     color: #fff;
@@ -296,7 +298,7 @@ nav .right a span {
     margin-right: auto;
     /* Center the section */
     max-width: 800px;
-    
+
     margin-bottom: 100px;
 }
 
@@ -317,6 +319,7 @@ nav .right a span {
     padding: 0 50px;
     margin-bottom: 100px;
 }
+
 .skills h2 {
     font-size: 35px;
     text-align: center;
@@ -328,7 +331,7 @@ nav .right a span {
 .skills-mainbox {
     background: #f7f9fc;
     border-radius: 18px;
-    box-shadow: 0 2px 12px rgba(74,118,238,0.08), 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 12px rgba(74, 118, 238, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
     border: 1.5px solid #e0e4ea;
     padding: 38px 32px 32px;
     max-width: 700px;
@@ -348,6 +351,7 @@ nav .right a span {
     margin: 0 -32px;
     padding: 28px 32px 18px;
 }
+
 .skills-subsection:last-child {
     border-bottom: none;
     padding-bottom: 0;
@@ -358,9 +362,11 @@ nav .right a span {
     background: linear-gradient(90deg, #eaf3ff 0%, #f7f9fc 100%);
     border-radius: 14px 14px 0 0;
 }
+
 .skills-bg-soft {
     background: linear-gradient(90deg, #f3f7fa 0%, #eaf6ff 100%);
 }
+
 .skills-bg-lang {
     background: linear-gradient(90deg, #f7f9fc 0%, #f5eaff 100%);
     border-radius: 0 0 14px 14px;
@@ -377,7 +383,7 @@ nav .right a span {
     height: 54px;
     background: #fff;
     border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(74,118,238,0.08);
+    box-shadow: 0 2px 8px rgba(74, 118, 238, 0.08);
     border: 1.5px solid #e0e4ea;
     flex-shrink: 0;
 }
@@ -386,6 +392,7 @@ nav .right a span {
 .skills-card-content {
     flex: 1;
 }
+
 .skills-card-content h3 {
     margin: 0;
     font-size: 1.4rem;
@@ -406,6 +413,7 @@ nav .right a span {
     flex-direction: column;
     gap: 12px;
 }
+
 /* Label avant chaque barre */
 .skill-bar span {
     display: flex;
@@ -423,6 +431,7 @@ nav .right a span {
     margin-left: 8px;
     align-self: flex-end;
 }
+
 /* Fond de la barre */
 .skill-bar .bar {
     width: 100%;
@@ -431,6 +440,7 @@ nav .right a span {
     border-radius: 3px;
     overflow: hidden;
 }
+
 /* Remplissage animé */
 .skill-bar .fill {
     height: 100%;
@@ -438,13 +448,15 @@ nav .right a span {
     width: 0;
     transition: width 1s ease;
 }
+
 /* Après animation AOS, on laisse le inline style prendre effet */
 .skill-bar[data-aos] .fill {
     width: inherit;
 }
+
 /* Thématique “Theoretical” en ton plus léger */
 .skill-bars.theoretical .fill {
-    background: rgba(74,118,238,0.6);
+    background: rgba(74, 118, 238, 0.6);
 }
 
 /* ==== 2. Soft Skills ==== */
@@ -456,6 +468,7 @@ nav .right a span {
     padding: 0;
     margin: 12px 0 0;
 }
+
 .soft-list li {
     display: flex;
     flex-direction: column;
@@ -464,6 +477,7 @@ nav .right a span {
     font-size: 0.9rem;
     color: var(--text-color);
 }
+
 .soft-list li i {
     font-size: 24px;
     color: var(--link-color);
@@ -471,125 +485,154 @@ nav .right a span {
 
 /* === SOFT SKILLS ICON GRID === */
 .soft-skills-section {
-  margin: 60px auto;
-  max-width: 700px;
-  text-align: center;
+    margin: 60px auto;
+    max-width: 700px;
+    text-align: center;
 }
+
 .soft-skills-section h3 {
-  font-size: 1.5rem;
-  color: var(--link-color);
-  margin-bottom: 24px;
+    font-size: 1.5rem;
+    color: var(--link-color);
+    margin-bottom: 24px;
 }
+
 .icon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
-  gap: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 24px;
 }
+
 .icon-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  margin-top: 24px;
-  padding: 16px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    padding: 16px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
+
 .icon-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
+
 .icon-item i {
-  font-size: 1.8rem;
-  color: var(--link-color);
+    font-size: 1.8rem;
+    color: var(--link-color);
 }
+
 .icon-item span {
-  font-size: 0.9rem;
-  color: var(--text-color);
-  text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    text-align: center;
 }
+
 /* --- Hard Skills Row: Technical & Theoretical side by side --- */
 .hard-skills-row {
-  display: flex;
-  flex-direction: row;
-  gap: 0px;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-top: 18px;
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 18px;
 }
+
 .hard-col {
-  flex: 2 1 0;
-  min-width: 0;
+    flex: 2 1 0;
+    min-width: 0;
 }
+
 .hard-col.technical {
-  margin-right: 18px;
+    margin-right: 18px;
 }
+
 .hard-col.theoretical {
     flex: 3 1 0;
     display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 18px;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 18px;
 }
+
 .circular-skills {
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 12px;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 12px;
 }
+
 .circular-skill {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90px;
 }
 
 .circular-progress {
-  position: relative;
-  width: 72px;
-  height: 72px;
-  margin-bottom: 8px;
+    position: relative;
+    width: 72px;
+    height: 72px;
+    margin-bottom: 8px;
 }
+
 .circular-progress svg {
-  width: 72px;
-  height: 72px;
-  transform: rotate(-90deg);
+    width: 72px;
+    height: 72px;
+    transform: rotate(-90deg);
 }
+
 .circle-bg {
-  fill: none;
-  stroke: #e0e4ea;
-  stroke-width: 3.5;
+    fill: none;
+    stroke: #e0e4ea;
+    stroke-width: 3.5;
 }
+
 .circle {
-  fill: none;
-  stroke: var(--link-color);
-  stroke-width: 3.5;
-  stroke-linecap: round;
-  stroke-dasharray: 100, 100;
-  stroke-dashoffset: 100;
-  transition: stroke-dashoffset 1s ease;
+    fill: none;
+    stroke: var(--link-color);
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    stroke-dasharray: 100, 100;
+    stroke-dashoffset: 100;
+    transition: stroke-dashoffset 1s ease;
 }
-.circular-progress[data-percent="90"] .circle { stroke-dasharray: 100; stroke-dashoffset: 10; }
-.circular-progress[data-percent="80"] .circle { stroke-dasharray: 100; stroke-dashoffset: 20; }
-.circular-progress[data-percent="75"] .circle { stroke-dasharray: 100; stroke-dashoffset: 25; }
+
+.circular-progress[data-percent="90"] .circle {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 10;
+}
+
+.circular-progress[data-percent="80"] .circle {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 20;
+}
+
+.circular-progress[data-percent="75"] .circle {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 25;
+}
+
 .circular-label {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.1rem;
-  color: var(--link-color);
-  font-weight: 600;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.1rem;
+    color: var(--link-color);
+    font-weight: 600;
 }
+
 .circular-skill-name {
-  margin-top: 2px;
-  font-size: 0.95rem;
-  color: var(--text-color);
-  text-align: center;
+    margin-top: 2px;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    text-align: center;
 }
 
 /* ==== 3. Languages ==== */
@@ -602,37 +645,41 @@ nav .right a span {
     margin: 12px 0 0;
     justify-content: center;
 }
+
 .lang-list li {
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: 1rem;
     margin-bottom: 12px;
-     padding-left: 0;
-  justify-content: flex-start;
-  width: 100%;
+    padding-left: 0;
+    justify-content: flex-start;
+    width: 100%;
     color: var(--text-color);
 }
+
 .lang-list .flag {
     font-size: 1.4rem;
 }
+
 .lang-list small {
-  font-size: 1.05em;
-  color: #555;
-  margin-left: 8px;
+    font-size: 1.05em;
+    color: #555;
+    margin-left: 8px;
 }
 
 .lang-list .fi {
-  font-size: 2.2em;
-  line-height: 1;
-  margin-right: 10px;
-  min-width: 2.2em;
-  text-align: left;
+    font-size: 2.2em;
+    line-height: 1;
+    margin-right: 10px;
+    min-width: 2.2em;
+    text-align: left;
 }
+
 .lang-list span {
-  font-size: 1.15em;
-  font-weight: 600;
-  text-align: left;
+    font-size: 1.15em;
+    font-weight: 600;
+    text-align: left;
 }
 
 
@@ -867,7 +914,7 @@ nav .right a span {
 }
 
 .entity-logo-topright:hover {
-    box-shadow: 0 4px 16px rgba(74, 118, 238, 0.18), 0 2px 8px rgba(0,0,0,0.10);
+    box-shadow: 0 4px 16px rgba(74, 118, 238, 0.18), 0 2px 8px rgba(0, 0, 0, 0.10);
     transform: scale(1.08) rotate(-4deg);
     border-color: #4a76ee;
     cursor: pointer;
