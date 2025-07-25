@@ -40,8 +40,9 @@
       padding-left: 8px;
       border-left: 4px dotted;
       cursor: pointer;
-      transition: background 0.3s, border-color 0.3s;
       background: none;
+      transition: background 0.3s, border-color 0.3s, transform 0.4s cubic-bezier(.5,1.5,.5,1), opacity 0.3s;
+      will-change: transform, opacity;
     }
     #annotation-list li[data-type="comment"] {
       border-color: #f0ad4e;
@@ -82,7 +83,8 @@ aside#annotation-panel h2 {
   border-left-width: 4px;
   border-left-style: solid;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, border-color 0.3s, transform 0.4s cubic-bezier(.5,1.5,.5,1), opacity 0.3s;
+  will-change: transform, opacity;
 }
 #annotation-list li:hover {
   background: rgba(0,0,0,0.05);
@@ -182,19 +184,28 @@ aside#annotation-panel h2 {
             const hoveredItemRect = itemRects[hoveredIdx];
             const hoveredCurrentCenterY = hoveredItemRect.top + hoveredItemRect.height / 2;
             const hoveredDeltaY = targetCenterY - hoveredCurrentCenterY;
-            const hoveredHeight = hoveredItemRect.height;
+            // Get panel top limit (below the title)
+            const panel = document.getElementById('annotation-panel');
+            const panelRect = panel.getBoundingClientRect();
+            const panelTopLimit = panelRect.top + panel.querySelector('h2').offsetHeight + 16; // 16px padding
             annotationItems.forEach((li, idx) => {
               li.classList.remove('hovering');
               li.style.transform = '';
+              li.style.opacity = '';
             });
             annotationItems.forEach((li, idx) => {
-              if (idx === hoveredIdx) {
-                li.classList.add('hovering');
-                li.style.transform = `translateY(${hoveredDeltaY}px)`;
-              } else if (idx < hoveredIdx) {
-                li.style.transform = `translateY(0px)`;
+              // Calculate new top position after transform
+              const newTop = itemRects[idx].top + hoveredDeltaY;
+              if (newTop < panelTopLimit) {
+                li.style.opacity = '0';
+                li.style.pointerEvents = 'none';
               } else {
-                li.style.transform = `translateY(${hoveredDeltaY > 0 ? hoveredDeltaY + hoveredHeight : 0}px)`;
+                li.style.opacity = '1';
+                li.style.pointerEvents = '';
+                if (idx === hoveredIdx) {
+                  li.classList.add('hovering');
+                }
+                li.style.transform = `translateY(${hoveredDeltaY}px)`;
               }
             });
             return;
@@ -208,6 +219,8 @@ aside#annotation-panel h2 {
               li.classList.remove('hovering');
             }
             li.style.transform = '';
+            li.style.opacity = '1';
+            li.style.pointerEvents = '';
           });
         }
       }
