@@ -220,10 +220,7 @@
       annos.forEach(el => {
         el.addEventListener('mouseenter', () => setHover(el.dataset.annoId, true));
         el.addEventListener('mouseleave', () => setHover(el.dataset.annoId, false));
-        el.addEventListener('click', () => {
-          annos.forEach(a => a.classList.remove('active'));
-          el.classList.add('active');
-        });
+        // Click does nothing
       });
       list.querySelectorAll('li').forEach(li => {
         li.addEventListener('mouseenter', () => setHover(li.dataset.annoId, true));
