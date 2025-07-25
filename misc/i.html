@@ -5,26 +5,71 @@
   <title>Poème caché</title>
   <link rel="stylesheet" href="../style.css">
   <style>
-    /* Ajustements spécifiques à la page Poem */
     body { margin: 0; font-family: inherit; }
-    main { margin-right: 320px; padding: 40px; line-height: 1.6; }
+    main { margin-right: 320px; padding: 40px; line-height: 1.6; position: relative; }
     aside#annotation-panel {
       position: fixed; top: 0; right: 0;
       width: 300px; height: 100vh;
       background: #f9f9f9; border-left: 1px solid #ddd;
       overflow-y: auto; padding: 20px;
       box-sizing: border-box;
+      z-index: 2;
     }
     aside#annotation-panel h2 { margin-top: 0; }
-    .annotated { cursor: pointer; transition: background 0.3s; }
-    .annotated.active { background: rgba(74,118,238,0.2); }
-    /* coloration par type */
-    .annotated[data-type="comment"] { }
-    .annotated[data-type="note"] { }
+    .annotated {
+      cursor: pointer;
+      transition: background 0.3s, box-shadow 0.3s;
+      position: relative;
+      border-radius: 4px;
+      padding: 2px 4px;
+    }
+    .annotated[data-type="comment"] {
+      background: rgba(240, 173, 78, 0.12);
+      box-shadow: 0 0 0 2px rgba(240, 173, 78, 0.18);
+    }
+    .annotated[data-type="note"] {
+      background: rgba(91, 192, 222, 0.12);
+      box-shadow: 0 0 0 2px rgba(91, 192, 222, 0.18);
+    }
+    .annotated.active {
+      background: rgba(74,118,238,0.18);
+      box-shadow: 0 0 0 2px #4a76ee55;
+    }
     #annotation-list li {
       margin: 0 0 12px;
       padding-left: 8px;
-      border-left: 4px solid;
+      border-left: 4px dotted;
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s;
+      background: none;
+    }
+    #annotation-list li[data-type="comment"] {
+      border-color: #f0ad4e;
+    }
+    #annotation-list li[data-type="note"] {
+      border-color: #5bc0de;
+    }
+    #annotation-list li.active {
+      background: rgba(74,118,238,0.10);
+      border-color: #4a76ee;
+    }
+    /* SVG lines */
+    .annotation-line {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      display: none;
+    }
+    .annotated.hovering ~ .annotation-line,
+    #annotation-list li.hovering ~ .annotation-line {
+      display: block;
+    }
+    .annotated.hovering + .annotation-line,
+    #annotation-list li.hovering + .annotation-line {
+      display: block;
+    }
+    .annotation-line.visible {
+      display: block;
     }
   </style>
 </head>
@@ -48,17 +93,18 @@
   <main>
     <h1>Mon Poème Caché</h1>
     <p>
-      Voici quelques vers <span class="annotated" data-type="comment" data-note="Cette phrase exprime l'idée de solitude.">solitaires</span>  
-      flottant dans la nuit,  
-      je contemple l’ombre <span class="annotated" data-type="note" data-note="Référence au clair-obscur">du clair</span>  
-      et de l’obscur.  
+      Voici quelques vers <span class="annotated" data-type="comment" data-note="Cette phrase exprime l'idée de solitude." data-anno-id="anno-0">solitaires</span>
+      flottant dans la nuit,
+      je contemple l’ombre <span class="annotated" data-type="note" data-note="Référence au clair-obscur" data-anno-id="anno-1">du clair</span>
+      et de l’obscur.
     </p>
     <p>
-      <span class="annotated" data-type="comment" data-note="Métaphore sur le temps qui passe.">Le temps s’effrite</span>  
-      comme un vieux sable,  
-      et chaque grain <span class="annotated" data-type="note" data-note="Image d’un souvenir qui persiste.">garde un souvenir</span>  
+      <span class="annotated" data-type="comment" data-note="Métaphore sur le temps qui passe." data-anno-id="anno-2">Le temps s’effrite</span>
+      comme un vieux sable,
+      et chaque grain <span class="annotated" data-type="note" data-note="Image d’un souvenir qui persiste." data-anno-id="anno-3">garde un souvenir</span>
       enfoui sous l’écume.
     </p>
+    <!-- SVG lines will be injected here by JS -->
     <!-- ... autres strophes ... -->
   </main>
 
@@ -73,27 +119,120 @@
     document.addEventListener("DOMContentLoaded", () => {
       const annos = document.querySelectorAll(".annotated");
       const list = document.getElementById("annotation-list");
-
+      const main = document.querySelector("main");
+      // Create annotation panel items and link them
       annos.forEach((el, i) => {
         const type = el.dataset.type;
         const note = el.dataset.note;
+        const annoId = el.dataset.annoId || `anno-${i}`;
+        el.dataset.annoId = annoId;
         // Création de l’item dans le panneau
         const li = document.createElement("li");
         li.textContent = note;
+        li.dataset.type = type;
+        li.dataset.annoId = annoId;
         // couleur selon type
         li.style.borderColor = type === "comment" ? "#f0ad4e" : "#5bc0de";
-        // click sur annotation du panneau
-        li.addEventListener("click", () => {
-          annos.forEach(a => a.classList.remove("active"));
-          el.classList.add("active");
-          el.scrollIntoView({ behavior: "smooth", block: "center" });
-        });
         list.appendChild(li);
+      });
 
-        // click sur le texte pour activer la note
-        el.addEventListener("click", () => {
-          annos.forEach(a => a.classList.remove("active"));
-          el.classList.add("active");
+      // Draw SVG lines between annotated text and annotation panel
+      function drawLines() {
+        // Remove old lines
+        document.querySelectorAll('.annotation-line').forEach(e => e.remove());
+        // Create a single SVG overlay for all lines
+        let svg = document.getElementById('annotation-svg-lines');
+        if (svg) svg.remove();
+        svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.setAttribute('id', 'annotation-svg-lines');
+        svg.style.position = 'fixed';
+        svg.style.left = '0';
+        svg.style.top = '0';
+        svg.style.width = '100vw';
+        svg.style.height = '100vh';
+        svg.style.pointerEvents = 'none';
+        svg.style.zIndex = '10';
+        document.body.appendChild(svg);
+        annos.forEach((el) => {
+          const annoId = el.dataset.annoId;
+          const li = list.querySelector(`li[data-anno-id="${annoId}"]`);
+          if (!li) return;
+          // Get bounding rects (viewport-relative)
+          const elRect = el.getBoundingClientRect();
+          const liRect = li.getBoundingClientRect();
+          // Calculate start/end points (center vertically)
+          const startX = elRect.right;
+          const startY = elRect.top + elRect.height / 2;
+          const endX = liRect.left;
+          const endY = liRect.top + liRect.height / 2;
+          // Dotted line
+          const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+          line.setAttribute("x1", startX);
+          line.setAttribute("y1", startY);
+          line.setAttribute("x2", endX);
+          line.setAttribute("y2", endY);
+          line.setAttribute("stroke", el.dataset.type === "comment" ? "#f0ad4e" : "#5bc0de");
+          line.setAttribute("stroke-width", "2.5");
+          line.setAttribute("stroke-dasharray", "6,6");
+          line.setAttribute("data-anno-id", annoId);
+          line.style.display = 'none';
+          line.classList.add('annotation-line');
+          svg.appendChild(line);
+        });
+      }
+      drawLines();
+      window.addEventListener('resize', drawLines);
+      window.addEventListener('scroll', drawLines);
+
+      // Synchronize hover and show/hide lines
+      function setHover(annoId, hovering) {
+        annos.forEach(a => {
+          if (a.dataset.annoId === annoId) {
+            if (hovering) a.classList.add('hovering');
+            else a.classList.remove('hovering');
+          } else {
+            a.classList.remove('hovering');
+          }
+        });
+        list.querySelectorAll('li').forEach(li => {
+          if (li.dataset.annoId === annoId) {
+            if (hovering) li.classList.add('hovering');
+            else li.classList.remove('hovering');
+          } else {
+            li.classList.remove('hovering');
+          }
+        });
+        // Show/hide the correct SVG line
+        const svg = document.getElementById('annotation-svg-lines');
+        if (svg) {
+          Array.from(svg.querySelectorAll('.annotation-line')).forEach(line => {
+            if (line.getAttribute('data-anno-id') === annoId) {
+              line.style.display = hovering ? 'block' : 'none';
+            } else {
+              line.style.display = 'none';
+            }
+          });
+        }
+      }
+      // Hover events
+      annos.forEach(el => {
+        el.addEventListener('mouseenter', () => setHover(el.dataset.annoId, true));
+        el.addEventListener('mouseleave', () => setHover(el.dataset.annoId, false));
+        el.addEventListener('click', () => {
+          annos.forEach(a => a.classList.remove('active'));
+          el.classList.add('active');
+        });
+      });
+      list.querySelectorAll('li').forEach(li => {
+        li.addEventListener('mouseenter', () => setHover(li.dataset.annoId, true));
+        li.addEventListener('mouseleave', () => setHover(li.dataset.annoId, false));
+        li.addEventListener('click', () => {
+          annos.forEach(a => a.classList.remove('active'));
+          const el = Array.from(annos).find(a => a.dataset.annoId === li.dataset.annoId);
+          if (el) {
+            el.classList.add('active');
+            el.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
         });
       });
     });
