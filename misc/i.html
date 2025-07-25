@@ -53,24 +53,48 @@
       background: rgba(74,118,238,0.10);
       border-color: #4a76ee;
     }
-    /* SVG lines */
-    .annotation-line {
-      position: absolute;
-      pointer-events: none;
-      z-index: 1;
-      display: none;
-    }
-    .annotated.hovering ~ .annotation-line,
-    #annotation-list li.hovering ~ .annotation-line {
-      display: block;
-    }
-    .annotated.hovering + .annotation-line,
-    #annotation-list li.hovering + .annotation-line {
-      display: block;
-    }
-    .annotation-line.visible {
-      display: block;
-    }
+
+    /* ==== Page Poem & Annotation Panel ==== */
+/* déjà inclus en <style> dans i.html, mais tu peux extraire ici si tu préfères */
+aside#annotation-panel {
+  position: fixed;
+  top: 0; right: 0;
+  width: 300px; height: 100vh;
+  background: #f9f9f9;
+  border-left: 1px solid #ddd;
+  overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+aside#annotation-panel h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: var(--link-color);
+}
+#annotation-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#annotation-list li {
+  margin-bottom: 12px;
+  padding-left: 8px;
+  border-left-width: 4px;
+  border-left-style: solid;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+#annotation-list li:hover {
+  background: rgba(0,0,0,0.05);
+}
+.annotated {
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.annotated.active {
+  background: rgba(74,118,238,0.2);
+}
+    
   </style>
 </head>
 <body>
@@ -104,8 +128,6 @@
       et chaque grain <span class="annotated" data-type="note" data-note="Image d’un souvenir qui persiste." data-anno-id="anno-3">garde un souvenir</span>
       enfoui sous l’écume.
     </p>
-    <!-- SVG lines will be injected here by JS -->
-    <div id="svg-lines-container" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;"></div>
     <!-- ... autres strophes ... -->
   </main>
 
@@ -137,57 +159,9 @@
         list.appendChild(li);
       });
 
-      // Draw SVG lines between annotated text and annotation panel
-      function drawLines() {
-        // Remove old lines
-        const svgContainer = document.getElementById('svg-lines-container');
-        if (!svgContainer) return;
-        svgContainer.innerHTML = '';
-        const mainRect = main.getBoundingClientRect();
-        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        svg.setAttribute('id', 'annotation-svg-lines');
-        svg.setAttribute('width', mainRect.width);
-        svg.setAttribute('height', mainRect.height);
-        svg.style.position = 'absolute';
-        svg.style.left = '0';
-        svg.style.top = '0';
-        svg.style.width = '100%';
-        svg.style.height = '100%';
-        svg.style.pointerEvents = 'none';
-        svg.style.zIndex = '-1';
-        svgContainer.appendChild(svg);
-        annos.forEach((el) => {
-          const annoId = el.dataset.annoId;
-          const li = list.querySelector(`li[data-anno-id="${annoId}"]`);
-          if (!li) return;
-          // Get bounding rects (relative to main)
-          const elRect = el.getBoundingClientRect();
-          const liRect = li.getBoundingClientRect();
-          const startX = elRect.right - mainRect.left;
-          const startY = elRect.top + elRect.height / 2 - mainRect.top;
-          const endX = liRect.left - mainRect.left;
-          const endY = liRect.top + liRect.height / 2 - mainRect.top;
-          // Dotted line
-          const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-          line.setAttribute("x1", startX);
-          line.setAttribute("y1", startY);
-          line.setAttribute("x2", endX);
-          line.setAttribute("y2", endY);
-          line.setAttribute("stroke", el.dataset.type === "comment" ? "#f0ad4e" : "#5bc0de");
-          line.setAttribute("stroke-width", "2.5");
-          line.setAttribute("stroke-dasharray", "6,6");
-          line.setAttribute("data-anno-id", annoId);
-          line.style.display = 'none';
-          line.classList.add('annotation-line');
-          svg.appendChild(line);
-        });
-      }
-      drawLines();
-      window.addEventListener('resize', drawLines);
-      window.addEventListener('scroll', drawLines);
-
       // Synchronize hover and show/hide lines
-      function setHover(annoId, hovering) {
+      function setHover(annoId, hovering, source) {
+        // source: 'text' or 'annotation'
         annos.forEach(a => {
           if (a.dataset.annoId === annoId) {
             if (hovering) a.classList.add('hovering');
@@ -196,35 +170,56 @@
             a.classList.remove('hovering');
           }
         });
-        list.querySelectorAll('li').forEach(li => {
-          if (li.dataset.annoId === annoId) {
-            if (hovering) li.classList.add('hovering');
-            else li.classList.remove('hovering');
-          } else {
-            li.classList.remove('hovering');
+        const annotationItems = Array.from(list.querySelectorAll('li'));
+        if (hovering && source === 'text') {
+          // Move annotation items to center the hovered one with the text
+          const el = Array.from(annos).find(a => a.dataset.annoId === annoId);
+          if (el) {
+            const elRect = el.getBoundingClientRect();
+            const itemRects = annotationItems.map(li => li.getBoundingClientRect());
+            const hoveredIdx = annotationItems.findIndex(li => li.dataset.annoId === annoId);
+            const targetCenterY = elRect.top + elRect.height / 2;
+            const hoveredItemRect = itemRects[hoveredIdx];
+            const hoveredCurrentCenterY = hoveredItemRect.top + hoveredItemRect.height / 2;
+            const hoveredDeltaY = targetCenterY - hoveredCurrentCenterY;
+            const hoveredHeight = hoveredItemRect.height;
+            annotationItems.forEach((li, idx) => {
+              li.classList.remove('hovering');
+              li.style.transform = '';
+            });
+            annotationItems.forEach((li, idx) => {
+              if (idx === hoveredIdx) {
+                li.classList.add('hovering');
+                li.style.transform = `translateY(${hoveredDeltaY}px)`;
+              } else if (idx < hoveredIdx) {
+                li.style.transform = `translateY(0px)`;
+              } else {
+                li.style.transform = `translateY(${hoveredDeltaY > 0 ? hoveredDeltaY + hoveredHeight : 0}px)`;
+              }
+            });
+            return;
           }
-        });
-        // Show/hide the correct SVG line
-        const svg = document.getElementById('annotation-svg-lines');
-        if (svg) {
-          Array.from(svg.querySelectorAll('.annotation-line')).forEach(line => {
-            if (line.getAttribute('data-anno-id') === annoId) {
-              line.style.display = hovering ? 'block' : 'none';
+        } else {
+          // No movement, just highlight annotation item
+          annotationItems.forEach(li => {
+            if (li.dataset.annoId === annoId && hovering) {
+              li.classList.add('hovering');
             } else {
-              line.style.display = 'none';
+              li.classList.remove('hovering');
             }
+            li.style.transform = '';
           });
         }
       }
       // Hover events
       annos.forEach(el => {
-        el.addEventListener('mouseenter', () => setHover(el.dataset.annoId, true));
-        el.addEventListener('mouseleave', () => setHover(el.dataset.annoId, false));
+        el.addEventListener('mouseenter', () => setHover(el.dataset.annoId, true, 'text'));
+        el.addEventListener('mouseleave', () => setHover(el.dataset.annoId, false, 'text'));
         // Click does nothing
       });
       list.querySelectorAll('li').forEach(li => {
-        li.addEventListener('mouseenter', () => setHover(li.dataset.annoId, true));
-        li.addEventListener('mouseleave', () => setHover(li.dataset.annoId, false));
+        li.addEventListener('mouseenter', () => setHover(li.dataset.annoId, true, 'annotation'));
+        li.addEventListener('mouseleave', () => setHover(li.dataset.annoId, false, 'annotation'));
         li.addEventListener('click', () => {
           annos.forEach(a => a.classList.remove('active'));
           const el = Array.from(annos).find(a => a.dataset.annoId === li.dataset.annoId);
