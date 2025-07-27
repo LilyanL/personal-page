@@ -31,9 +31,20 @@
       background: rgba(91, 192, 222, 0.12);
       box-shadow: 0 0 0 2px rgba(91, 192, 222, 0.18);
     }
+    
     .annotated.active {
-      background: rgba(74,118,238,0.18);
-      box-shadow: 0 0 0 2px #4a76ee55;
+      border-radius: 6px;
+      transition: box-shadow 0.3s, border 0.3s, border-radius 0.3s, background 0.3s;
+    }
+    .annotated.active[data-type="comment"] {
+      background: rgba(240, 173, 78, 0.18);
+      box-shadow: 0 0 0 4px #f0ad4e, 0 4px 18px rgba(240,173,78,0.18);
+      border: 2px solid #f0ad4e;
+    }
+    .annotated.active[data-type="note"] {
+      background: rgba(91, 192, 222, 0.18);
+      box-shadow: 0 0 0 4px #5bc0de, 0 4px 18px rgba(91,192,222,0.18);
+      border: 2px solid #5bc0de;
     }
     #annotation-list li {
       margin: 0 0 12px;
