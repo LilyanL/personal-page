@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Poème caché</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body { margin: 0; font-family: inherit; }
+    main { margin-right: 320px; padding: 40px; line-height: 1.6; position: relative; }
+    aside#annotation-panel {
+      position: fixed; top: 0; right: 0;
+      width: 300px; height: 100vh;
+      background: #f9f9f9; border-left: 1px solid #ddd;
+      overflow-y: auto; padding: 20px;
+      box-sizing: border-box;
+      z-index: 2;
+    }
+    aside#annotation-panel h2 { margin-top: 0; }
+    .annotated {
+      cursor: pointer;
+      transition: background 0.3s, box-shadow 0.3s;
+      position: relative;
+      border-radius: 4px;
+      padding: 2px 4px;
+    }
+    .annotated[data-type="comment"] {
+      background: rgba(240, 173, 78, 0.12);
+      box-shadow: 0 0 0 2px rgba(240, 173, 78, 0.18);
+    }
+    .annotated[data-type="note"] {
+      background: rgba(91, 192, 222, 0.12);
+      box-shadow: 0 0 0 2px rgba(91, 192, 222, 0.18);
+    }
+    
+    .annotated.active {
+      border-radius: 6px;
+      transition: box-shadow 0.3s, border 0.3s, border-radius 0.3s, background 0.3s;
+    }
+    .annotated.active[data-type="comment"] {
+      background: rgba(240, 173, 78, 0.18);
+      box-shadow: 0 0 0 4px #f0ad4e, 0 4px 18px rgba(240,173,78,0.18);
+      border: 2px solid #f0ad4e;
+    }
+    .annotated.active[data-type="note"] {
+      background: rgba(91, 192, 222, 0.18);
+      box-shadow: 0 0 0 4px #5bc0de, 0 4px 18px rgba(91,192,222,0.18);
+      border: 2px solid #5bc0de;
+    }
+    #annotation-list li {
+      margin: 0 0 12px;
+      padding-left: 8px;
+      border-left: 4px dotted;
+      cursor: pointer;
+      background: none;
+      transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, border-radius 0.3s, transform 0.4s cubic-bezier(.5,1.5,.5,1), opacity 0.3s;
+      will-change: transform, opacity;
+    }
+    #annotation-list li.hovering {
+      border-radius: 6px;
+      box-shadow: 0 4px 18px rgba(74,118,238,0.18), 0 0 0 2px #4a76ee55;
+      border-left: 4px solid #4a76ee;
+    }
+    #annotation-list li[data-type="comment"] {
+      border-color: #f0ad4e;
+    }
+    #annotation-list li[data-type="note"] {
+      border-color: #5bc0de;
+    }
+    #annotation-list li.active {
+      background: rgba(74,118,238,0.10);
+      border-color: #4a76ee;
+    }
+
+    /* ==== Page Poem & Annotation Panel ==== */
+/* déjà inclus en <style> dans i.html, mais tu peux extraire ici si tu préfères */
+aside#annotation-panel {
+  position: fixed;
+  top: 0; right: 0;
+  width: 300px; height: 100vh;
+  background: #f9f9f9;
+  border-left: 1px solid #ddd;
+  overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+aside#annotation-panel h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: var(--link-color);
+}
+#annotation-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#annotation-list li {
+  margin-bottom: 12px;
+  padding-left: 8px;
+  border-left-width: 4px;
+  border-left-style: solid;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s, transform 0.4s cubic-bezier(.5,1.5,.5,1), opacity 0.3s;
+  will-change: transform, opacity;
+}
+#annotation-list li:hover {
+  background: rgba(0,0,0,0.05);
+}
+.annotated {
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.annotated.active {
+  background: rgba(74,118,238,0.2);
+}
+    
+  </style>
+</head>
+<body>
+
+
+   <!--    1) Gate par mot de passe (JS côté client, pas sécurisé à 100%) -->
+         <!--
+  <script>
+   (function(){
+      const passwd = prompt("Page protégée – mot de passe :",""); 
+      if(passwd !== "a") {
+        document.body.innerHTML = "<h2 style='padding:40px;text-align:center;'>Accès refusé.</h2>";
+        return;
+      }
+    })();
+  </script> 
+
+-->
+  <!-- 2) Contenu principal : ton poème -->
+  <main>
+    <h1>Mon Poème Caché</h1>
+    <p>
+      Voici quelques vers <span class="annotated" data-type="comment" data-note="Cette phrase exprime l'idée de solitude." data-anno-id="anno-0">solitaires</span>
+      flottant dans la nuit,
+      je contemple l’ombre <span class="annotated" data-type="note" data-note="Référence au clair-obscur" data-anno-id="anno-1">du clair</span>
+      et de l’obscur.
+    </p>
+    <p>
+      <span class="annotated" data-type="comment" data-note="Métaphore sur le temps qui passe." data-anno-id="anno-2">Le temps s’effrite</span>
+      comme un vieux sable,
+      et chaque grain <span class="annotated" data-type="note" data-note="Image d’un souvenir qui persiste." data-anno-id="anno-3">garde un souvenir</span>
+      enfoui sous l’écume.
+    </p>
+    <!-- ... autres strophes ... -->
+  </main>
+
+  <!-- 3) Panneau d’annotations à droite -->
+  <aside id="annotation-panel">
+    <h2>Annotations</h2>
+    <ul id="annotation-list"></ul>
+  </aside>
+
+  <!-- 4) Script d’initialisation des annotations -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const annos = document.querySelectorAll(".annotated");
+      const list = document.getElementById("annotation-list");
+      const main = document.querySelector("main");
+      // Create annotation panel items and link them
+      annos.forEach((el, i) => {
+        const type = el.dataset.type;
+        const note = el.dataset.note;
+        const annoId = el.dataset.annoId || `anno-${i}`;
+        el.dataset.annoId = annoId;
+        // Création de l’item dans le panneau
+        const li = document.createElement("li");
+        li.textContent = note;
+        li.dataset.type = type;
+        li.dataset.annoId = annoId;
+        // couleur selon type
+        li.style.borderColor = type === "comment" ? "#f0ad4e" : "#5bc0de";
+        list.appendChild(li);
+      });
+
+      // Synchronize hover and show/hide lines
+      function setHover(annoId, hovering, source) {
+        // source: 'text' or 'annotation'
+        annos.forEach(a => {
+          if (a.dataset.annoId === annoId) {
+            if (hovering) a.classList.add('hovering');
+            else a.classList.remove('hovering');
+          } else {
+            a.classList.remove('hovering');
+          }
+        });
+        const annotationItems = Array.from(list.querySelectorAll('li'));
+        if (hovering && source === 'text') {
+          // Move annotation items to center the hovered one with the text
+          const el = Array.from(annos).find(a => a.dataset.annoId === annoId);
+          if (el) {
+            const elRect = el.getBoundingClientRect();
+            const itemRects = annotationItems.map(li => li.getBoundingClientRect());
+            const hoveredIdx = annotationItems.findIndex(li => li.dataset.annoId === annoId);
+            const targetCenterY = elRect.top + elRect.height / 2;
+            const hoveredItemRect = itemRects[hoveredIdx];
+            const hoveredCurrentCenterY = hoveredItemRect.top + hoveredItemRect.height / 2;
+            const hoveredDeltaY = targetCenterY - hoveredCurrentCenterY;
+            // Get panel top limit (below the title)
+            const panel = document.getElementById('annotation-panel');
+            const panelRect = panel.getBoundingClientRect();
+            const panelTopLimit = panelRect.top + panel.querySelector('h2').offsetHeight + 16; // 16px padding
+            annotationItems.forEach((li, idx) => {
+              li.classList.remove('hovering');
+              li.style.transform = '';
+              li.style.opacity = '';
+            });
+            annotationItems.forEach((li, idx) => {
+              // Calculate new top position after transform
+              const newTop = itemRects[idx].top + hoveredDeltaY;
+              if (newTop < panelTopLimit) {
+                li.style.opacity = '0';
+                li.style.pointerEvents = 'none';
+              } else {
+                li.style.opacity = '1';
+                li.style.pointerEvents = '';
+                if (idx === hoveredIdx) {
+                  li.classList.add('hovering');
+                }
+                li.style.transform = `translateY(${hoveredDeltaY}px)`;
+              }
+            });
+            return;
+          }
+        } else {
+          // No movement, just highlight annotation item
+          annotationItems.forEach(li => {
+            if (li.dataset.annoId === annoId && hovering) {
+              li.classList.add('hovering');
+            } else {
+              li.classList.remove('hovering');
+            }
+            li.style.transform = '';
+            li.style.opacity = '1';
+            li.style.pointerEvents = '';
+          });
+        }
+      }
+      // Hover events
+      annos.forEach(el => {
+        el.addEventListener('mouseenter', () => setHover(el.dataset.annoId, true, 'text'));
+        el.addEventListener('mouseleave', () => setHover(el.dataset.annoId, false, 'text'));
+        // Click does nothing
+      });
+      list.querySelectorAll('li').forEach(li => {
+        li.addEventListener('mouseenter', () => setHover(li.dataset.annoId, true, 'annotation'));
+        li.addEventListener('mouseleave', () => setHover(li.dataset.annoId, false, 'annotation'));
+        li.addEventListener('click', () => {
+          annos.forEach(a => a.classList.remove('active'));
+          const el = Array.from(annos).find(a => a.dataset.annoId === li.dataset.annoId);
+          if (el) {
+            el.classList.add('active');
+            el.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
