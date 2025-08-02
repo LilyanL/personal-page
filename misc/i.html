@@ -19,11 +19,11 @@
     }
 
     aside#annotation-panel {
-      position: fixed;
+      position: sticky;
       top: 0;
-      right: 0;
+      float: right;
       width: 300px;
-      height: 100vh;
+      min-height: 100vh;
       background: #f9f9f9;
       border-left: 1px solid #ddd;
       overflow-y: auto;
@@ -125,6 +125,11 @@
       list-style: none;
       padding: 0;
       margin: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     #annotation-list li {
@@ -216,10 +221,14 @@
 
         <div class="stanza">
           <p>
-            La thèse ne s'écrit dans l'espoir qu'on la lise <br>
-            Faisons l'exception de braves rapporteurs <br>
-            S'il devait y avoir, aléas, des lecteurs <br>
-            égarés se lançant dans pareille entreprise,
+            <span class="annotated" data-type="comment"
+        data-note="Cyrano" data-anno-id="anno-10">La thèse ne s'écrit dans l'espoir qu'on la lise</span> <br>
+            <span class="annotated" data-type="comment"
+        data-note="Cyrano" data-anno-id="anno-11">Faisons l'exception de braves rapporteurs </span><br>
+            <span class="annotated" data-type="comment"
+        data-note="Cyrano" data-anno-id="anno-12">S'il devait y avoir, aléas, des lecteurs </span><br>
+            <span class="annotated" data-type="comment"
+        data-note="Cyrano" data-anno-id="anno-13">égarés se lançant dans pareille entreprise,</span>
           </p>
         </div>
 
@@ -708,7 +717,6 @@
     document.addEventListener("DOMContentLoaded", () => {
       const annos = document.querySelectorAll(".annotated");
       const list = document.getElementById("annotation-list");
-      const main = document.querySelector("main");
       // Create annotation panel items and link them
       annos.forEach((el, i) => {
         const type = el.dataset.type;
@@ -725,87 +733,41 @@
         list.appendChild(li);
       });
 
-      // Synchronize hover and show/hide lines
-      function setHover(annoId, hovering, source) {
-        // source: 'text' or 'annotation'
-        annos.forEach(a => {
-          if (a.dataset.annoId === annoId) {
-            if (hovering) a.classList.add('hovering');
-            else a.classList.remove('hovering');
-          } else {
-            a.classList.remove('hovering');
-          }
-        });
+      // --- Scroll synchronization logic ---
+      function alignAnnotationsWithText() {
+        const panel = document.getElementById('annotation-panel');
         const annotationItems = Array.from(list.querySelectorAll('li'));
-        if (hovering && source === 'text') {
-          // Move annotation items to center the hovered one with the text
-          const el = Array.from(annos).find(a => a.dataset.annoId === annoId);
-          if (el) {
-            const elRect = el.getBoundingClientRect();
-            const itemRects = annotationItems.map(li => li.getBoundingClientRect());
-            const hoveredIdx = annotationItems.findIndex(li => li.dataset.annoId === annoId);
-            const targetCenterY = elRect.top + elRect.height / 2;
-            const hoveredItemRect = itemRects[hoveredIdx];
-            const hoveredCurrentCenterY = hoveredItemRect.top + hoveredItemRect.height / 2;
-            const hoveredDeltaY = targetCenterY - hoveredCurrentCenterY;
-            // Get panel top limit (below the title)
-            const panel = document.getElementById('annotation-panel');
-            const panelRect = panel.getBoundingClientRect();
-            const panelTopLimit = panelRect.top + panel.querySelector('h2').offsetHeight + 16; // 16px padding
-            annotationItems.forEach((li, idx) => {
-              li.classList.remove('hovering');
-              li.style.transform = '';
-              li.style.opacity = '';
-            });
-            annotationItems.forEach((li, idx) => {
-              // Calculate new top position after transform
-              const newTop = itemRects[idx].top + hoveredDeltaY;
-              if (newTop < panelTopLimit) {
-                li.style.opacity = '0';
-                li.style.pointerEvents = 'none';
-              } else {
-                li.style.opacity = '1';
-                li.style.pointerEvents = '';
-                if (idx === hoveredIdx) {
-                  li.classList.add('hovering');
-                }
-                li.style.transform = `translateY(${hoveredDeltaY}px)`;
-              }
-            });
-            return;
-          }
-        } else {
-          // No movement, just highlight annotation item
-          annotationItems.forEach(li => {
-            if (li.dataset.annoId === annoId && hovering) {
-              li.classList.add('hovering');
-            } else {
-              li.classList.remove('hovering');
-            }
-            li.style.transform = '';
-            li.style.opacity = '1';
-            li.style.pointerEvents = '';
-          });
-        }
-      }
-      // Hover events
-      annos.forEach(el => {
-        el.addEventListener('mouseenter', () => setHover(el.dataset.annoId, true, 'text'));
-        el.addEventListener('mouseleave', () => setHover(el.dataset.annoId, false, 'text'));
-        // Click does nothing
-      });
-      list.querySelectorAll('li').forEach(li => {
-        li.addEventListener('mouseenter', () => setHover(li.dataset.annoId, true, 'annotation'));
-        li.addEventListener('mouseleave', () => setHover(li.dataset.annoId, false, 'annotation'));
-        li.addEventListener('click', () => {
-          annos.forEach(a => a.classList.remove('active'));
-          const el = Array.from(annos).find(a => a.dataset.annoId === li.dataset.annoId);
-          if (el) {
-            el.classList.add('active');
-            el.scrollIntoView({ behavior: "smooth", block: "center" });
+        panel.style.position = 'fixed';
+        panel.style.overflow = 'auto';
+        list.style.position = 'absolute';
+        list.style.top = '0';
+        list.style.left = '0';
+        list.style.width = '100%';
+        list.style.height = '100%';
+        // Get panel's top position in viewport
+        const panelTopViewport = panel.getBoundingClientRect().top;
+        annotationItems.forEach(li => {
+          li.style.position = 'absolute';
+          li.style.left = '0';
+          li.style.right = '0';
+          const annoId = li.dataset.annoId;
+          const textEl = document.querySelector(`.annotated[data-anno-id="${annoId}"]`);
+          if (textEl) {
+            // Get text position in viewport
+            const textRect = textEl.getBoundingClientRect();
+            const textCenterYViewport = textRect.top + textRect.height / 2;
+            // Calculate top relative to panel's content area
+            const top = textCenterYViewport - panelTopViewport - li.offsetHeight / 2;
+            li.style.top = `${top}px`;
           }
         });
-      });
+      }
+
+      // Initial sync and on scroll/resize
+      window.addEventListener('scroll', alignAnnotationsWithText);
+      window.addEventListener('resize', alignAnnotationsWithText);
+      // Also on load
+      alignAnnotationsWithText();
     });
   </script>
 </body>
