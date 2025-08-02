@@ -44,14 +44,24 @@
       padding: 2px 4px;
     }
 
-    .annotated[data-type="comment"] {
-      background: rgba(240, 173, 78, 0.12);
-      box-shadow: 0 0 0 2px rgba(240, 173, 78, 0.18);
+    .annotated[data-type="référence"] {
+      background: rgba(220, 53, 69, 0.12);
+      box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.18);
     }
 
-    .annotated[data-type="note"] {
+    .annotated[data-type="explication"] {
       background: rgba(91, 192, 222, 0.12);
       box-shadow: 0 0 0 2px rgba(91, 192, 222, 0.18);
+    }
+
+    .annotated[data-type="théâtre"] {
+      background: rgba(111, 66, 193, 0.12);
+      box-shadow: 0 0 0 2px rgba(111, 66, 193, 0.18);
+    }
+
+    .annotated[data-type="poésie"] {
+      background: rgba(40, 167, 69, 0.12);
+      box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.18);
     }
 
     .annotated.active {
@@ -59,16 +69,28 @@
       transition: box-shadow 0.3s, border 0.3s, border-radius 0.3s, background 0.3s;
     }
 
-    .annotated.active[data-type="comment"] {
-      background: rgba(240, 173, 78, 0.18);
-      box-shadow: 0 0 0 4px #f0ad4e, 0 4px 18px rgba(240, 173, 78, 0.18);
-      border: 2px solid #f0ad4e;
+    .annotated.active[data-type="référence"] {
+      background: rgba(220, 53, 69, 0.18);
+      box-shadow: 0 0 0 4px #dc3545, 0 4px 18px rgba(220, 53, 69, 0.18);
+      border: 2px solid #dc3545;
     }
 
-    .annotated.active[data-type="note"] {
+    .annotated.active[data-type="explication"] {
       background: rgba(91, 192, 222, 0.18);
       box-shadow: 0 0 0 4px #5bc0de, 0 4px 18px rgba(91, 192, 222, 0.18);
       border: 2px solid #5bc0de;
+    }
+
+    .annotated.active[data-type="théâtre"] {
+      background: rgba(111, 66, 193, 0.18);
+      box-shadow: 0 0 0 4px #6f42c1, 0 4px 18px rgba(60, 0, 92, 0.637);
+      border: 2px solid #6f42c1;
+    }
+
+    .annotated.active[data-type="poésie"] {
+      background: rgba(40, 167, 69, 0.18);
+      box-shadow: 0 0 0 4px #28a745, 0 4px 18px rgba(40, 167, 69, 0.18);
+      border: 2px solid #28a745;
     }
 
     #annotation-list li {
@@ -87,12 +109,20 @@
       border-left: 4px solid #4a76ee;
     }
 
-    #annotation-list li[data-type="comment"] {
-      border-color: #f0ad4e;
+    #annotation-list li[data-type="référence"] {
+      border-color: #dc3545;
     }
 
-    #annotation-list li[data-type="note"] {
+    #annotation-list li[data-type="explication"] {
       border-color: #5bc0de;
+    }
+
+    #annotation-list li[data-type="théâtre"] {
+      border-color: #6f42c1;
+    }
+
+    #annotation-list li[data-type="poésie"] {
+      border-color: #28a745;
     }
 
     #annotation-list li.active {
@@ -195,40 +225,19 @@
   <!-- 2) Contenu principal : ton poème -->
   <main>
 
-    <h1>Mon Poème Caché</h1>
-    <p>
-      Voici quelques vers <span class="annotated" data-type="comment"
-        data-note="Cette phrase exprime l'idée de solitude." data-anno-id="anno-0">solitaires</span>
-      flottant dans la nuit,
-      je contemple l’ombre <span class="annotated" data-type="note" data-note="Référence au clair-obscur"
-        data-anno-id="anno-1">du clair</span>
-      et de l’obscur.
-    </p>
-    <p>
-      <span class="annotated" data-type="comment" data-note="Métaphore sur le temps qui passe." data-anno-id="anno-2">Le
-        temps s’effrite</span>
-      comme un vieux sable,
-      et chaque grain <span class="annotated" data-type="note" data-note="Image d’un souvenir qui persiste."
-        data-anno-id="anno-3">garde un souvenir</span>
-      enfoui sous l’écume.
-    </p>
-    <!-- ... autres strophes ... -->
 
     <section id="poem">
-      <h2>Titre du Poème</h2>
+      <h2>Circonvolutions, amphigourismes et remerciements</h2>
 
       <div class="poem">
-
+      
         <div class="stanza">
           <p>
-            <span class="annotated" data-type="comment"
-        data-note="Cyrano" data-anno-id="anno-10">La thèse ne s'écrit dans l'espoir qu'on la lise</span> <br>
-            <span class="annotated" data-type="comment"
-        data-note="Cyrano" data-anno-id="anno-11">Faisons l'exception de braves rapporteurs </span><br>
-            <span class="annotated" data-type="comment"
-        data-note="Cyrano" data-anno-id="anno-12">S'il devait y avoir, aléas, des lecteurs </span><br>
-            <span class="annotated" data-type="comment"
-        data-note="Cyrano" data-anno-id="anno-13">égarés se lançant dans pareille entreprise,</span>
+            <span class="annotated" data-type="théâtre" data-note="Cyrano de Bergerac"
+              data-anno-id="anno-10"> On ne la couche pas dans l'espoir qu'on la lise</span> <br>
+            Une pareille thèse, à part des rapporteurs <br>
+            Qu'on tient à saluer. S'il y a des lecteurs <br>
+            Égarés se lançant dans pareille entreprise,
           </p>
         </div>
 
@@ -247,7 +256,8 @@
           <p>
             Veuillez bien pardonner tous mes excès de prose, <br>
             Jamais plus n'aurai-je d’autre publication. <br>
-            J'étais en humeur de dire de jolies choses - <br>
+             <span class="annotated" data-type="théâtre" data-note="Le Bourgeois gentilhomme"
+              data-anno-id="anno-20"> J'étais en humeur de dire de jolies choses </span> <br>
             Pour toucher au sublime il faut donner le fion.
           </p>
         </div>
@@ -305,8 +315,10 @@
 
         <div class="stanza">
           <p>
-            J'ai pu voir tes rigueur et éthique, sans hic <br>
-            Et je te serrerais bien volontiers la main. <br>
+            <span class="annotated" data-type="explication" data-note="Zététique *insérer rires*"
+              data-anno-id="anno-90"> J'ai pu voir tes rigueur et éthique, sans hic <br> </span>
+            <span class="annotated" data-type="théâtre" data-note="Cyrano de Bergerac"
+              data-anno-id="anno-91">Et je te serrerais bien volontiers la main. </span> <br>
             J'espère recroiser tes pas, tombant à pic <br>
             Pour partager un bock boulevard Saint-Germain.
           </p>
@@ -396,9 +408,10 @@
         <div class="stanza">
           <p>
             Comme je suis de ceux pensifs et paresseux, <br>
-            Je vous dirais les mots tous ceux, tous ceux, tous ceux <br>
-            Qui me viendront, je vais vous les jeter, en touffe, <br>
-            Sans les mettre en bouquet - plagiat, que d'esbrouffe!
+            <span class="annotated" data-type="théâtre" data-note="Cyrano de Bergerac"
+              data-anno-id="anno-180">Je vous dirais les mots tous ceux, tous ceux, tous ceux <br>
+            Qui me viendront, je vais vous les jeter, en touffe, <br> 
+            Sans les mettre en bouquet </span> - plagiat, que d'esbrouffe !
           </p>
         </div>
 
@@ -458,20 +471,25 @@
             Dominique, Hugo, Nour, Karim, Julian, Viviane, <br>
             Sébastien, Yao Dong, Ling Xiao, Oryane... <br>
             Et j'en distinguerai en particulier un <br>
-            O Captain, My Captain, j'appelle ici Robin !
+            <span class="annotated" data-type="référence" data-note="Walt Whitman"
+              data-anno-id="anno-240"> O Captain! My Captain! </span>, j'appelle ici Robin !
           </p>
         </div>
 
 
         <div class="stanza">
           <p>
-            Parfois on oublierait dans le quotidien
+            Parfois on oublierait dans le quotidien <br>
             Ce grand tout que formaient tant de ces petits riens : <br>
             Petits jeux, crêpes, sport, rires, débats sérieux <br>
-            Voire absurdes parfois sur des goûts mystérieux <br>
+            Voire absurdes parfois sur des goûts mystérieux
+          </p>
+          </div>
 
-
-            Un seul être vous manque et tout est dépeuplé... <br>
+        <div class="stanza">
+          <p>
+            <span class="annotated" data-type="poésie" data-note="L'Isolement, Lamartine"
+              data-anno-id="anno-260">Un seul être vous manque et tout est dépeuplé... </span><br>
             Et que me manqueront notre ensemble envolé. <br>
             Grâce aussi soit rendue aux précédents savants <br>
             Pour l'ambiance et l'accueil des nouveaux arrivants :
@@ -579,10 +597,12 @@
 
         <div class="stanza">
           <p>
-            Je ne connais, hélas, la moitié d’entre vous <br>
+            <span class="annotated" data-type="référence" data-note="&laquo;&nbsp; I don't know half of you half as well as I should like; and I like less than half of you half as well as you deserve.&nbsp;&raquo; J.R.R. Tolkien. Pardon à Tolkien pour ce massacre..."
+              data-anno-id="anno-370">Je ne connais, hélas, la moitié d’entre vous
+           <br>
             Autant que je le veux que je le souhaitai <br>
             Mais j’aime un peu moins de la moitié de vous <br>
-            À moitié moins, hélas, que vous ne le valez.
+            À moitié moins, hélas, que vous ne le valez. </span>
           </p>
         </div>
 
@@ -632,7 +652,9 @@
             Nicolas, nos sessions, pour jouer, pour parler <br>
             Verront toujours chez moi quelques rires fleurir <br>
             Bien plus que de raison. Nous devrions mûrir... <br>
-            Mais nous continuerons, avec l'âge, à couler.
+            <span class="annotated" data-type="référence" data-note="La vieillesse est un naufrage." data-anno-id="anno-420">
+              Mais nous continuerons, avec l'âge, à couler.
+            </span>
           </p>
         </div>
 
@@ -642,7 +664,9 @@
             Forcément, pour conclure, il me faut remercier <br>
             Caroline (une, encor !) à qui j'ai pu me fier <br>
             Depuis l'affre honni que l'on nomme prépa. <br>
-            Parce que c'était toi, parce que c'était moi.
+            <span class="annotated" data-type="référence" data-note="..." data-anno-id="anno-430">
+             Parce que c'était toi, parce que c'était moi.
+            </span>
           </p>
         </div>
 
@@ -679,7 +703,7 @@
 
         <div class="stanza">
           <p>
-            Qu'en fin le point soit mis sur le dernier i. <br>
+            <span class="annotated" data-type="explication" data-note="Était-ce seulement un alexandrin ?" data-anno-id="anno-470">Qu'en fin le point soit mis sur le dernier i.</span> <br>
           </p>
         </div>
 
@@ -719,17 +743,26 @@
       const list = document.getElementById("annotation-list");
       // Create annotation panel items and link them
       annos.forEach((el, i) => {
-        const type = el.dataset.type;
-        const note = el.dataset.note;
+        let type = el.dataset.type;
+        let note = el.dataset.note;
         const annoId = el.dataset.annoId || `anno-${i}`;
         el.dataset.annoId = annoId;
+        // Remap old types to new ones
+        if (type === "comment") type = "référence";
+        if (type === "note") type = "explication";
+        el.dataset.type = type;
         // Création de l’item dans le panneau
         const li = document.createElement("li");
         li.textContent = note;
         li.dataset.type = type;
         li.dataset.annoId = annoId;
         // couleur selon type
-        li.style.borderColor = type === "comment" ? "#f0ad4e" : "#5bc0de";
+        let color = "#5bc0de";
+        if (type === "référence") color = "#dc3545";
+        if (type === "explication") color = "#5bc0de";
+        if (type === "théâtre") color = "#6f42c1";
+        if (type === "poésie") color = "#28a745";
+        li.style.borderColor = color;
         list.appendChild(li);
       });
 
