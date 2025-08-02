@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <title>Poème caché</title>
   <link rel="stylesheet" href="../style.css">
   <style>
-    body { margin: 0; font-family: inherit; }
-    main { margin-right: 320px; padding: 40px; line-height: 1.6; position: relative; }
+    body {
+      margin: 0;
+      font-family: inherit;
+    }
+
+    main {
+      margin-right: 320px;
+      padding: 40px;
+      line-height: 1.6;
+      position: relative;
+    }
+
     aside#annotation-panel {
-      position: fixed; top: 0; right: 0;
-      width: 300px; height: 100vh;
-      background: #f9f9f9; border-left: 1px solid #ddd;
-      overflow-y: auto; padding: 20px;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 300px;
+      height: 100vh;
+      background: #f9f9f9;
+      border-left: 1px solid #ddd;
+      overflow-y: auto;
+      padding: 20px;
       box-sizing: border-box;
       z-index: 2;
     }
-    aside#annotation-panel h2 { margin-top: 0; }
+
+    aside#annotation-panel h2 {
+      margin-top: 0;
+    }
+
     .annotated {
       cursor: pointer;
       transition: background 0.3s, box-shadow 0.3s;
@@ -23,103 +43,139 @@
       border-radius: 4px;
       padding: 2px 4px;
     }
+
     .annotated[data-type="comment"] {
       background: rgba(240, 173, 78, 0.12);
       box-shadow: 0 0 0 2px rgba(240, 173, 78, 0.18);
     }
+
     .annotated[data-type="note"] {
       background: rgba(91, 192, 222, 0.12);
       box-shadow: 0 0 0 2px rgba(91, 192, 222, 0.18);
     }
-    
+
     .annotated.active {
       border-radius: 6px;
       transition: box-shadow 0.3s, border 0.3s, border-radius 0.3s, background 0.3s;
     }
+
     .annotated.active[data-type="comment"] {
       background: rgba(240, 173, 78, 0.18);
-      box-shadow: 0 0 0 4px #f0ad4e, 0 4px 18px rgba(240,173,78,0.18);
+      box-shadow: 0 0 0 4px #f0ad4e, 0 4px 18px rgba(240, 173, 78, 0.18);
       border: 2px solid #f0ad4e;
     }
+
     .annotated.active[data-type="note"] {
       background: rgba(91, 192, 222, 0.18);
-      box-shadow: 0 0 0 4px #5bc0de, 0 4px 18px rgba(91,192,222,0.18);
+      box-shadow: 0 0 0 4px #5bc0de, 0 4px 18px rgba(91, 192, 222, 0.18);
       border: 2px solid #5bc0de;
     }
+
     #annotation-list li {
       margin: 0 0 12px;
       padding-left: 8px;
       border-left: 4px dotted;
       cursor: pointer;
       background: none;
-      transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, border-radius 0.3s, transform 0.4s cubic-bezier(.5,1.5,.5,1), opacity 0.3s;
+      transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, border-radius 0.3s, transform 0.4s cubic-bezier(.5, 1.5, .5, 1), opacity 0.3s;
       will-change: transform, opacity;
     }
+
     #annotation-list li.hovering {
       border-radius: 6px;
-      box-shadow: 0 4px 18px rgba(74,118,238,0.18), 0 0 0 2px #4a76ee55;
+      box-shadow: 0 4px 18px rgba(74, 118, 238, 0.18), 0 0 0 2px #4a76ee55;
       border-left: 4px solid #4a76ee;
     }
+
     #annotation-list li[data-type="comment"] {
       border-color: #f0ad4e;
     }
+
     #annotation-list li[data-type="note"] {
       border-color: #5bc0de;
     }
+
     #annotation-list li.active {
-      background: rgba(74,118,238,0.10);
+      background: rgba(74, 118, 238, 0.10);
       border-color: #4a76ee;
     }
 
     /* ==== Page Poem & Annotation Panel ==== */
-/* déjà inclus en <style> dans i.html, mais tu peux extraire ici si tu préfères */
-aside#annotation-panel {
-  position: fixed;
-  top: 0; right: 0;
-  width: 300px; height: 100vh;
-  background: #f9f9f9;
-  border-left: 1px solid #ddd;
-  overflow-y: auto;
-  padding: 20px;
-  box-sizing: border-box;
-}
-aside#annotation-panel h2 {
-  margin-top: 0;
-  font-size: 1.2rem;
-  color: var(--link-color);
-}
-#annotation-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-#annotation-list li {
-  margin-bottom: 12px;
-  padding-left: 8px;
-  border-left-width: 4px;
-  border-left-style: solid;
-  cursor: pointer;
-  transition: background 0.3s, border-color 0.3s, transform 0.4s cubic-bezier(.5,1.5,.5,1), opacity 0.3s;
-  will-change: transform, opacity;
-}
-#annotation-list li:hover {
-  background: rgba(0,0,0,0.05);
-}
-.annotated {
-  cursor: pointer;
-  transition: background 0.3s;
-}
-.annotated.active {
-  background: rgba(74,118,238,0.2);
-}
-    
+    /* déjà inclus en <style> dans i.html, mais tu peux extraire ici si tu préfères */
+    aside#annotation-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 300px;
+      height: 100vh;
+      background: #f9f9f9;
+      border-left: 1px solid #ddd;
+      overflow-y: auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    aside#annotation-panel h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: var(--link-color);
+    }
+
+    #annotation-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #annotation-list li {
+      margin-bottom: 12px;
+      padding-left: 8px;
+      border-left-width: 4px;
+      border-left-style: solid;
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s, transform 0.4s cubic-bezier(.5, 1.5, .5, 1), opacity 0.3s;
+      will-change: transform, opacity;
+    }
+
+    #annotation-list li:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .annotated {
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .annotated.active {
+      background: rgba(74, 118, 238, 0.2);
+    }
+
+    .poem {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 2rem auto;
+      color: #333;
+    }
+
+    .stanza+.stanza {
+      margin-top: 1.5rem;
+      /* espace entre quatrains */
+    }
+
+    .stanza p {
+      margin: 0;
+      /* on contrôle tout via line-height */
+    }
   </style>
 </head>
+
 <body>
 
 
-   <!--    1) Gate par mot de passe (JS côté client, pas sécurisé à 100%) -->
-         <!--
+  <!--    1) Gate par mot de passe (JS côté client, pas sécurisé à 100%) -->
+  <!--
   <script>
    (function(){
       const passwd = prompt("Page protégée – mot de passe :",""); 
@@ -133,20 +189,512 @@ aside#annotation-panel h2 {
 -->
   <!-- 2) Contenu principal : ton poème -->
   <main>
+
     <h1>Mon Poème Caché</h1>
     <p>
-      Voici quelques vers <span class="annotated" data-type="comment" data-note="Cette phrase exprime l'idée de solitude." data-anno-id="anno-0">solitaires</span>
+      Voici quelques vers <span class="annotated" data-type="comment"
+        data-note="Cette phrase exprime l'idée de solitude." data-anno-id="anno-0">solitaires</span>
       flottant dans la nuit,
-      je contemple l’ombre <span class="annotated" data-type="note" data-note="Référence au clair-obscur" data-anno-id="anno-1">du clair</span>
+      je contemple l’ombre <span class="annotated" data-type="note" data-note="Référence au clair-obscur"
+        data-anno-id="anno-1">du clair</span>
       et de l’obscur.
     </p>
     <p>
-      <span class="annotated" data-type="comment" data-note="Métaphore sur le temps qui passe." data-anno-id="anno-2">Le temps s’effrite</span>
+      <span class="annotated" data-type="comment" data-note="Métaphore sur le temps qui passe." data-anno-id="anno-2">Le
+        temps s’effrite</span>
       comme un vieux sable,
-      et chaque grain <span class="annotated" data-type="note" data-note="Image d’un souvenir qui persiste." data-anno-id="anno-3">garde un souvenir</span>
+      et chaque grain <span class="annotated" data-type="note" data-note="Image d’un souvenir qui persiste."
+        data-anno-id="anno-3">garde un souvenir</span>
       enfoui sous l’écume.
     </p>
     <!-- ... autres strophes ... -->
+
+    <section id="poem">
+      <h2>Titre du Poème</h2>
+
+      <div class="poem">
+
+        <div class="stanza">
+          <p>
+            La thèse ne s'écrit dans l'espoir qu'on la lise <br>
+            Faisons l'exception de braves rapporteurs <br>
+            S'il devait y avoir, aléas, des lecteurs <br>
+            égarés se lançant dans pareille entreprise,
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            La raison la plus claire ou bien la plus latente <br>
+            Est la curiosité par le hasard charriée <br>
+            De voir si, quelque part, quelque stance affligeante <br>
+            Signée "le dramatique" était pour eux dédiée.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Veuillez bien pardonner tous mes excès de prose, <br>
+            Jamais plus n'aurai-je d’autre publication. <br>
+            J'étais en humeur de dire de jolies choses - <br>
+            Pour toucher au sublime il faut donner le fion.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Aussi donc, j’aimerais quand même m’appliquer <br>
+            Et m’impliquer afin ici de remercier <br>
+            À travers un écrit sur- ou sous-expliqué <br>
+            Toutes celles et ceux qui m’ont solacié.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            D'abord, à tout seigneur, tout honneur revenu : <br>
+            Brahim, avant déjà de tenter le projet <br>
+            D'affronter une thèse, on m'avait prévenu <br>
+            Que le mentor importe au-delà du sujet.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            J’ai compris entre temps ô combien c’était vrai <br>
+            Pendant plus de trois ans, présent, tu m’encadrais <br>
+            Et m’as fourni l’appui que je requérais tant <br>
+            Bien que fort différents, nous avancions pourtant
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Merci donc d'avoir su tantôt t'accommoder <br>
+            A des moments fréquents, crus de désespérance, <br>
+            D'avoir pu m'aiguiller voire raccommoder <br>
+            En m'apportant conseils, le tout non sans constance ;
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            D'avoir encouragé quand je perdais le fil <br>
+            Et donné les répits dont j'avais grand besoin <br>
+            Ou l'optimiste élan, sans vaciller d'un cil, <br>
+            Qui me faisait défaut sous le poids de mes soins.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            J'ai pu voir tes rigueur et éthique, sans hic <br>
+            Et je te serrerais bien volontiers la main. <br>
+            J'espère recroiser tes pas, tombant à pic <br>
+            Pour partager un bock boulevard Saint-Germain.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Merci Professeur Vialle, ayant ainsi donné <br>
+            À tout ce doctorat sa teneur médicale. <br>
+            Nos réunions étaient rares mais idéales <br>
+            Et leur foisonnement m'était insoupçonné.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            J’aimerais remercier ceux ayant accepté <br>
+            De lire ce travail, puis qui l'ont rapporté. <br>
+            La chance a fait que c'est à vos côtés, Messieurs <br>
+            Que je pus devenir ingénieur puis docteur.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Je me sens très heureux d’avoir là profité <br>
+            Des retours de chercheurs que j'ai tant respectés. <br>
+            Je n'aurais espéré de meilleurs rapporteurs : <br>
+            Que vous me relisiez, ce fut là mon honneur.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Je me permets ici ce petit aparté : <br>
+            Professeur Nageotte, par votre intégrité <br>
+            Votre justesse aussi, vous avez suscité <br>
+            Chez moi l'inclination envers la probité.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            De même grand merci aux examinateurs <br>
+            Pour le temps consacré, leur considération ; <br>
+            Pour notre échange empli de leurs mille questions <br>
+            Entre intérêt profond et retours très flatteurs.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Passons à AGATHE, feue l'équipe restant <br>
+            La clé de voûte au cœur de mes tout premiers ans, <br>
+            Avant de devenir plus tard RPI-Bio - <br>
+            Une peau refaite sur des os déjà beaux.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Merci aux permanents d'avoir construit ces "lieux" : <br>
+            Ludovic, Fabien, Ignacio, Wael, <br>
+            Jérôme, Emmanuel, Agnès, Nathanael <br>
+            On y était autant joyeux que sérieux !
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            D'ailleurs parlant de joies, place aux non-permanents ! <br>
+            Las, il me sera là quelque peu malaisé <br>
+            De pouvoir tout vous dire et le tout bien phrasé, <br>
+            Si bien qu'il me faudra donc être entreprenant !
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Comme je suis de ceux pensifs et paresseux, <br>
+            Je vous dirais les mots tous ceux, tous ceux, tous ceux <br>
+            Qui me viendront, je vais vous les jeter, en touffe, <br>
+            Sans les mettre en bouquet - plagiat, que d'esbrouffe!
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Je vais donc commencer par ceux de ma cuvée : <br>
+            Océane, Guillaume, Ousmane et Alexis... <br>
+            Et Solène ! (Évitons toute galanterie.) <br>
+            Trois années qu'il me faut maintenant décuver.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Trois ans de doctorat, galère et désarroi, <br>
+            Parfois aussi de joies sur ce chemin de croix <br>
+            Vous ne saurez jamais combien vous m’inspirâtes, <br>
+            Chacun à sa façon : tantôt par votre hâte
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            À faire mil choses à la fois, tout le temps. <br>
+            Par votre dévouement, bon, comme doctorants, <br>
+            Mais aussi et surtout par vos convictions <br>
+            En éthique, morale, en justice, inclusion...
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Tout ce que de meilleur je venais rechercher, <br>
+            C'est bien parmi vous tous que je les dénichai. <br>
+            Et j’en passe... beaucoup ! Si ce n'est un chercheur <br>
+            Vous avez fait de moi quelqu’un d’un peu meilleur.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Je n'oublie pas non plus ceux ensuite arrivés <br>
+            Et presque trop nombreux, pour être tous cités. <br>
+            Alors en espérant que je n'en oublie pas : <br>
+            Éloïse, Anaïs, Clémentine, Amanda,
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Dominique, Hugo, Nour, Karim, Julian, Viviane, <br>
+            Sébastien, Yao Dong, Ling Xiao, Oryane... <br>
+            Et j'en distinguerai en particulier un <br>
+            O Captain, My Captain, j'appelle ici Robin !
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Parfois on oublierait dans le quotidien
+            Ce grand tout que formaient tant de ces petits riens : <br>
+            Petits jeux, crêpes, sport, rires, débats sérieux <br>
+            Voire absurdes parfois sur des goûts mystérieux <br>
+
+
+            Un seul être vous manque et tout est dépeuplé... <br>
+            Et que me manqueront notre ensemble envolé. <br>
+            Grâce aussi soit rendue aux précédents savants <br>
+            Pour l'ambiance et l'accueil des nouveaux arrivants :
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Étienne, Omar, Jésus, Mégane, ou bien Jimmy, <br>
+            Éléonore, Josh, Clémence, Charlélie, <br>
+            Félix, Dounia, Charlotte - et tous sont là... je crois ? <br>
+            Merci pour ce Discord qui servait de beffroi !
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            L'aventure FAROS mérite sa mention <br>
+            Spéciale avec Guillaume, Antoine, Élie, Jimmy <br>
+            Et Saman derrière une organisation <br>
+            Dont la qualité fut sans aucun compromis.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Je suis venu, j'ai vu, puis j'ai beaucoup appris <br>
+            Grâce à vous, en équipe autant qu'en robotique. <br>
+            J'espère avoir un jour, Guillaume, un tel esprit <br>
+            Pour atteindre un regard qui soit si synthétique !
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Élie, on s'est pas mal, je crois, accompagné ! <br>
+            J'espère que le fruit que tu vois retiré <br>
+            De nos travaux égal à ce que j'ai gagné. <br>
+            Ton assistance fut un luxe inespéré.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Je sais que la valeur de cette thèse tient <br>
+            Pour une grande part à son pan médical. <br>
+            Je ne sais que trop bien de qui cela me vient, <br>
+            alors un grand merci, mon cher co-doctoral.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Stéphane, Frédéric et Wael, grand merci <br>
+            De m'avoir octroyé diverses vacations ; <br>
+            Et pour m'avoir donné de belles conditions <br>
+            Grand merci Samuel et Madame Baudry !
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Une pensée ira forcément aux bureaux <br>
+            Administratif comme aussi d'ingénierie : <br>
+            Adela, Philippe, Yves, Anne-Claire, Sylvie, <br>
+            Julien, Awatef, Laurent, Pablo, Bruno !
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Remercions aussi toutes celles et ceux <br>
+            Qui rythmèrent si bien durant trois fois un an <br>
+            Ses semaines chargées d'instants libérateurs : <br>
+            De rock (par Amandine et tous les professeurs)
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            D'apnée (salut Julien) et ses gouffres bleus <br>
+            De déboire en tango (Philippe, si patient), <br>
+            de danse (Mélody tant de soirs adoucis) <br>
+            De drôles jeux de rôle (Alexia, mil mercis).
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Un plagiat pour ceux qu'on put donc aborder <br>
+            On est loin du premier à bien y regarder
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Je ne connais, hélas, la moitié d’entre vous <br>
+            Autant que je le veux que je le souhaitai <br>
+            Mais j’aime un peu moins de la moitié de vous <br>
+            À moitié moins, hélas, que vous ne le valez.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Viennent dorénavant les mercis aux amies. <br>
+            Elles sauront très bien s'identifier : "Les filles" ! <br>
+            Malgré la discrétion dont je peux faire preuve, <br>
+            Vous voir m'apportera toujours beaucoup de joie.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Votre encouragement jusqu'à l'ultime épreuve <br>
+            Fut ô combien précieux, éclaircissant ma voie ! <br>
+            Pierre, tu me laissas, merci, me réfugier <br>
+            En quête de soleil autour de Montpellier.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            J'ajoute aussi, Nihel, que la présence humaine <br>
+            Autant que la douceur que tu m'as proposées <br>
+            Furent ma chance au cœur de mon éclair de peine . <br>
+            Merci d'avoir permis ces heures apaisées.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Un jour vous me verrez de nouveau dans le coin - <br>
+            Un jour que je souhaite un peu plus près que loin. <br>
+            Caroline, merci tant pour être venue, <br>
+            Que tes accueils côtiers, ton amitié tenue !
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Nicolas, nos sessions, pour jouer, pour parler <br>
+            Verront toujours chez moi quelques rires fleurir <br>
+            Bien plus que de raison. Nous devrions mûrir... <br>
+            Mais nous continuerons, avec l'âge, à couler.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Forcément, pour conclure, il me faut remercier <br>
+            Caroline (une, encor !) à qui j'ai pu me fier <br>
+            Depuis l'affre honni que l'on nomme prépa. <br>
+            Parce que c'était toi, parce que c'était moi.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Sans être toujours sûr de l'avoir mérité <br>
+            Merci pour tout, tout, tout ce support apporté... <br>
+            Ironie ô combien soudain inénarrable, <br>
+            Qui fait qu'enfin, hélas, arrive l'ineffable.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            En plus de la raison ou rationalité, <br>
+            La recherche sera pour moi toujours vecteur <br>
+            De collégialité, d'universalité, <br>
+            De ce qu'elles portent en termes de valeur.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Je voudrais pouvoir croire à ce bout d'idéal <br>
+            Que nous partagerions, auquel être loyal, <br>
+            Auquel je pus un jour un instant prendre part, <br>
+            Qui m'accompagnera bien après mon départ.
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            Qu'en fin le point soit mis sur le dernier i. <br>
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>
+            À vous toutes et tous, c'est, pour finir, ici <br>
+            Que j'adresse un dernier, un immense
+          </p>
+        </div>
+
+
+        <div class="stanza">
+          <p>merci
+
+
+
+        </div>
+
+      </div>
+
+
+    </section>
+
   </main>
 
   <!-- 3) Panneau d’annotations à droite -->
@@ -261,4 +809,5 @@ aside#annotation-panel h2 {
     });
   </script>
 </body>
+
 </html>
