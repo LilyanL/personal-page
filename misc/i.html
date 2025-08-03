@@ -83,7 +83,7 @@
       border-left: 4px dotted;
       cursor: pointer;
       background: none;
-      transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, border-radius 0.3s, transform 0.4s cubic-bezier(.5, 1.5, .5, 1), opacity 0.3s;
+      transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, border-radius 0.3s, transform 0.4s cubic-bezier(.5, 1.5, .5, 1);
       will-change: transform, opacity;
     }
 
@@ -153,7 +153,7 @@
       border-left-width: 4px;
       border-left-style: solid;
       cursor: pointer;
-      transition: background 0.3s, border-color 0.3s, transform 0.4s cubic-bezier(.5, 1.5, .5, 1), opacity 0.3s;
+      transition: background 0.3s, border-color 0.3s, transform 0.4s cubic-bezier(.5, 1.5, .5, 1), opacity 0.1s;
       will-change: transform, opacity;
     }
 
@@ -301,7 +301,7 @@
         <div class="stanza">
           <p>
             <span class="annotated" data-type="explication" data-note="Zététique *insérer rires*"
-              data-anno-id="anno-90"> J'ai pu voir tes rigueur et éthique, sans hic <br> </span>
+              data-anno-id="anno-90"> J'ai pu voir tes rigueur et éthique, sans hic </span> <br> 
             <span class="annotated" data-type="théâtre" data-note="Cyrano de Bergerac"
               data-anno-id="anno-91">Et je te serrerais bien volontiers la main. </span> <br>
             J'espère recroiser tes pas, tombant à pic <br>
@@ -763,6 +763,10 @@
         list.style.height = '100%';
         // Get panel's top position in viewport
         const panelTopViewport = panel.getBoundingClientRect().top;
+        // Get the bottom of the Annotations title in the panel
+        const panelTitle = panel.querySelector('h2');
+        const panelTitleRect = panelTitle.getBoundingClientRect();
+        const panelTitleBottom = panelTitleRect.bottom;
         annotationItems.forEach(li => {
           li.style.position = 'absolute';
           li.style.left = '0';
@@ -776,6 +780,14 @@
             // Calculate top relative to panel's content area
             const top = textCenterYViewport - panelTopViewport - li.offsetHeight / 2;
             li.style.top = `${top}px`;
+            // Hide annotation if it overlaps the title
+            if (textCenterYViewport - 50< panelTitleBottom) {
+              li.style.opacity = '0';
+              li.style.pointerEvents = 'none';
+            } else {
+              li.style.opacity = '1';
+              li.style.pointerEvents = '';
+            }
           }
         });
       }
