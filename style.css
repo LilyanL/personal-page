@@ -65,7 +65,7 @@ a {
 /* BUTTON BACK TO TOP */
 #back-to-top {
     position: fixed;
-    bottom: 32px;
+    bottom: 10px;
     right: 32px;
     width: 52px;
     height: 52px;
@@ -145,7 +145,11 @@ nav .right a span {
     }
 
     #back-to-top {
-        right: 90px;
+        right: 75px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        width: 40px;
+        height: 40px;
     }
 }
 
