@@ -1246,7 +1246,17 @@ a[href*="h2020faros.eu"]:hover {
         }
 
         #back-to-top {
-        bottom: 0px;
+        bottom: 60px;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+
+        font-size: 20px;
+        width: 35px;
+        height: 35px;
+
+        background-color: transparent;
+        color: blue
+
     }
 
 
