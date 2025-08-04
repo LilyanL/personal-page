@@ -1336,7 +1336,27 @@ a[href*="h2020faros.eu"]:hover {
 }
 
 
+@media (max-width: 450px) {
 
+        /* Mobile language list: flag on top, name below, level below name */
+    .lang-list li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        width: 100%;
+        margin-bottom: 18px;
+        padding-left: 0;
+        font-size: 1rem;
+        background: none;
+        box-sizing: border-box;
+    }
+
+    .lang-list small {
+        margin-left: 0;
+    }
+
+}
 
 
 
