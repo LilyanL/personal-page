@@ -1244,6 +1244,10 @@ a[href*="h2020faros.eu"]:hover {
             display: none;
         }
 
+        #back-to-top {
+        bottom: 0px;
+    }
+
 
         /* SECTION 1: HERO */
         .hero {
