@@ -37,10 +37,18 @@
             <a href="/" class="logo">Lilyan Leblanc</a>
         </div>
         <div class="right">
-            <a href="https://www.linkedin.com/in/lilyan-leblanc" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/lilyan-leblanc" target="_blank" rel="noopener noreferrer" onclick="event.preventDefault();
+     const webUrl  = 'https://www.linkedin.com/in/lilyan-leblanc';
+     const appUrl  = 'linkedin://in/lilyan-leblanc';
+     // Try app first
+     window.location = appUrl;
+     // If after 800ms we’re still here, go to web
+     setTimeout(() => { window.location = webUrl; }, 800);
+   ">
                 <i class="fa-brands fa-linkedin"></i>
                 <span class="tooltip">LinkedIn</span>
             </a>
+
             <a href="https://scholar.google.com/citations?user=J-FB9BEAAAAJ&hl=fr" target="_blank"
                 rel="noopener noreferrer">
                 <i class="fa-brands fa-google-scholar"></i>
@@ -296,7 +304,7 @@
                         <a href="https://www.sorbonne-universite.fr/en" target="_blank" rel="noopener noreferrer">
                             <img class="entity-logo-topright" src="images/entities-logos/SU.webp" alt="SU logo" />
                         </a>
-                        <h3 class="cell-title">2021 – 2025 | Surgical Robotics Researcher</h3>
+                        <h3 class="cell-title">2021 – 2025 &nbsp;|&nbsp; Surgical Robotics Researcher</h3>
                         <p class="edu-location">
                             <b>
                                 <a href="https://www.sorbonne-universite.fr/en" target="_blank"
@@ -334,7 +342,7 @@
                             <img class="entity-logo-topright" src="images/entities-logos/ZBR.webp"
                                 alt="Zimmer Biomet logo" />
                         </a>
-                        <h3 class="cell-title">2018 - 2021 | Surgical Robotics Engineer</h3>
+                        <h3 class="cell-title">2018 - 2021 &nbsp;|&nbsp; Surgical Robotics Engineer</h3>
                         <p class="edu-location">
                             <b>
                                 <a href="https://www.zimmerbiomet.com/en/products-and-solutions/zb-edge/robotics.html"
@@ -360,10 +368,7 @@
         <!-- SECTION 5: Education -->
         <section id="education" class="education">
             <h2>Education</h2>
-            <div class="text">
-                Engineer-Doctor in Surgical Robotics with advanced degrees in biomedical engineering and applied
-                sciences, ranked top of class for multiple programs.
-            </div>
+*
 
             <div class="experience-cells">
 
@@ -373,7 +378,7 @@
                         <a href="https://www.sorbonne-universite.fr/en" target="_blank" rel="noopener noreferrer">
                             <img class="entity-logo-topright" src="images/entities-logos/SU.webp" alt="SU logo" />
                         </a>
-                        <h3 class="cell-title">2021 - 2025 | PhD in Surgical Robotics</h3>
+                        <h3 class="cell-title">2021 - 2025 &nbsp;|&nbsp; PhD in Surgical Robotics</h3>
                         <p class="edu-location">
                             <b>
                                 <a href="https://www.sorbonne-universite.fr/en" target="_blank"
@@ -397,7 +402,7 @@
                         <a href="https://www.sorbonne-universite.fr/en" target="_blank" rel="noopener noreferrer">
                             <img class="entity-logo-topright" src="images/entities-logos/SU.webp" alt="SU logo" />
                         </a>
-                        <h3 class="cell-title">2023 | University Diploma in Biomedical Engineering</h3>
+                        <h3 class="cell-title">2023 &nbsp;|&nbsp; University Diploma in Biomedical Engineering</h3>
                         <p class="edu-location"><b> <a href="https://www.sorbonne-universite.fr/en" target="_blank"
                                     rel="noopener noreferrer">Sorbonne Université</a> - Paris (France)</b></p>
                         <ul class="xp-list">
@@ -415,7 +420,7 @@
                             <img class="entity-logo-topright" src="images/entities-logos/Unistra.webp"
                                 alt="University of Strasbourg logo" />
                         </a>
-                        <h3 class="cell-title">2016 - 2018 | Master IRIV (Imaging, Robotics & Engineering for Living
+                        <h3 class="cell-title">2016 - 2018 &nbsp;|&nbsp; Master IRIV (Imaging, Robotics & Engineering for Living
                             Systems)</h3>
                         <p class="edu-location">
                             <b>
@@ -440,7 +445,7 @@
                             <img class="entity-logo-topright" src="images/entities-logos/TPS.webp"
                                 alt="Télécom Physique Strasbourg logo" />
                         </a>
-                        <h3 class="cell-title">2015 - 2018 | Engineering Degree in Information Technologies for Health
+                        <h3 class="cell-title">2015 - 2018 &nbsp;|&nbsp; Engineering Degree in Information Technologies for Health
                         </h3>
                         <p class="edu-location">
                             <b>
@@ -465,7 +470,7 @@
                             <img class="entity-logo-topright" src="images/entities-logos/Kleber.webp"
                                 alt="Lycée Kléber logo" />
                         </a>
-                        <h3 class="cell-title">2016 - 2018 | Master IRIV (Imaging, Robotics & Engineering for Living
+                        <h3 class="cell-title">2016 - 2018 &nbsp;|&nbsp; Master IRIV (Imaging, Robotics & Engineering for Living
                             Systems)</h3>
                         <p class="edu-location">
                             <b>
@@ -644,7 +649,7 @@
 
     </footer>
 
-    <!-- Add just before </body> -->
+    <!-- Arrow button -->
     <button id="back-to-top" title="Back to top">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
