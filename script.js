@@ -2,7 +2,7 @@
 window.addEventListener('scroll', function() {
     const btn = document.getElementById('back-to-top');
     if (btn) {
-        if (window.scrollY > 100) {
+        if (window.scrollY > 200) {
             btn.style.display = 'flex';
         } else {
             btn.style.display = 'none';
