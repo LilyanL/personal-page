@@ -251,36 +251,26 @@ aside#annotation-panel {
 <body>
 
 
-  <!--    1) Gate par mot de passe (JS côté client, pas sécurisé à 100%) -->
-  <!--
-  <script>
-   (function(){
-      const passwd = prompt("Page protégée – mot de passe :",""); 
-      if(passwd !== "a") {
-        document.body.innerHTML = "<h2 style='padding:40px;text-align:center;'>Accès refusé.</h2>";
-        return;
-      }
-    })();
-  </script>  -->
-  <!-- 2) Contenu principal : ton poème -->
-  <!-- Section pleine largeur : Une passante de Baudelaire -->
-  <section id="baudelaire-intro" style="width:100%;background:#f5f5f5;padding:40px 0 24px 0;box-sizing:border-box;">
-    <div style="max-width:700px;margin:0 auto;">
-      <h2 style="font-size:1.6rem;margin-bottom:1.2rem;color:#222;text-align:center;">À une passante <span
-          style="font-size:1.3rem;color:#666;"><br> Charles Baudelaire</span></h2>
-  
-      <div class="main-poem-baudelaire">
-  
-        <div class="quatrain-baudelaire">
-          <p>La rue assourdissante autour de moi hurlait. <br>
-            Longue, mince, en grand deuil, douleur majestueuse, <br>
-            Une femme passa, d’une main fastueuse <br>
-            Soulevant, balançant le feston et l’ourlet;
-          </p>
-        </div>
-  
-  
-        <div class="quatrain-baudelaire">
+  <div id="protected-content" style="display:none">
+    <!-- 2) Contenu principal : ton poème -->
+    <!-- Section pleine largeur : Une passante de Baudelaire -->
+    <section id="baudelaire-intro" style="width:100%;background:#f5f5f5;padding:40px 0 24px 0;box-sizing:border-box;">
+      <div style="max-width:700px;margin:0 auto;">
+        <h2 style="font-size:1.6rem;margin-bottom:1.2rem;color:#222;text-align:center;">À une passante <span
+            style="font-size:1.3rem;color:#666;"><br> Charles Baudelaire</span></h2>
+    
+        <div class="main-poem-baudelaire">
+    
+          <div class="quatrain-baudelaire">
+            <p>La rue assourdissante autour de moi hurlait. <br>
+              Longue, mince, en grand deuil, douleur majestueuse, <br>
+              Une femme passa, d’une main fastueuse <br>
+              Soulevant, balançant le feston et l’ourlet;
+            </p>
+          </div>
+    
+    
+          <div class="quatrain-baudelaire">
           <p>
             Agile et noble, avec sa jambe de statue. <br>
             Moi, je buvais, crispé comme un extravagant, <br>
@@ -313,13 +303,11 @@ aside#annotation-panel {
   </section>
   
   <main>
-
-
+    
     <section id="poem">
       <div class="poem-title">
         <h2>Circonvolutions, amphigourismes et remerciements</h2>
       </div>
-
       <div class="poem">
       
         <div class="stanza">
@@ -819,9 +807,8 @@ aside#annotation-panel {
         </div>
 
       </div>
-
-
     </section>
+    
 
   </section>
   <!-- Le panneau d'annotations est maintenant juste après le poème principal, à l'intérieur de <main> -->
@@ -834,7 +821,17 @@ aside#annotation-panel {
 
   <!-- 4) Script d’initialisation des annotations -->
   <script>
+    (function(){
+      const passwd = prompt("Le mot cliqué :","");
+      if(passwd === "a") {
+        document.getElementById("protected-content").style.display = "block";
+      } else {
+        document.body.innerHTML = "<h2 style='padding:400px;text-align:center;'>Accès refusé.</h2>";
+      }
+    })();
+    // Only run annotation logic if content is shown
     document.addEventListener("DOMContentLoaded", () => {
+      if(document.getElementById("protected-content").style.display !== "block") return;
       // Effet click sur le poème de Baudelaire
       const baudelairePoem = document.querySelector('.main-poem-baudelaire');
       if (baudelairePoem) {
