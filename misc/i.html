@@ -189,7 +189,21 @@
       margin: 0;
       /* on contrôle tout via line-height */
     }
+
+    /* Correction position panneau annotation */
+.poem {
+  position: relative;
+}
+aside#annotation-panel {
+  position: absolute !important;
+  top: 0;
+  right: -320px;
+  height: 100%;
+}
+
   </style>
+
+
 </head>
 
 <body>
@@ -205,10 +219,31 @@
         return;
       }
     })();
-  </script> 
+  </script>  -->
 
--->
   <!-- 2) Contenu principal : ton poème -->
+  <!-- Section pleine largeur : Une passante de Baudelaire -->
+  <section id="baudelaire-intro" style="width:100%;background:#f5f5f5;padding:40px 0 24px 0;box-sizing:border-box;">
+    <div style="max-width:700px;margin:0 auto;">
+      <h2 style="font-size:1.3rem;margin-bottom:1.2rem;color:#222;text-align:center;">Une passante <span style="font-size:1rem;color:#666;">— Charles Baudelaire</span></h2>
+      <div style="font-family:Georgia, 'Times New Roman', serif;font-size:1.05rem;line-height:1.7;color:#333;text-align:center;">
+        <p>La rue assourdissante autour de moi hurlait.<br>
+        Longue, mince, en grand deuil, douleur majestueuse,<br>
+        Une femme passa, d'une main fastueuse<br>
+        Soulevant, balançant le feston et l'ourlet ;</p>
+        <p>Agile et noble, avec sa jambe de statue.<br>
+        Moi, je buvais, crispé comme un extravagant,<br>
+        Dans son œil, ciel livide où germe l'ouragan,<br>
+        La douceur qui fascine et le plaisir qui tue.</p>
+        <p>Un éclair... puis la nuit ! — Fugitive beauté<br>
+        Dont le regard m'a fait soudainement renaître,<br>
+        Ne te verrai-je plus que dans l'éternité ?</p>
+        <p>Ailleurs, bien loin d'ici ! trop tard ! jamais peut-être !<br>
+        Car j'ignore où tu fuis, tu ne sais où je vais,<br>
+        Ô toi que j'eusse aimée, ô toi qui le savais !</p>
+      </div>
+    </div>
+  </section>
   <main>
 
 
@@ -714,13 +749,14 @@
 
     </section>
 
-  </main>
-
-  <!-- 3) Panneau d’annotations à droite -->
+  </section>
+  <!-- Le panneau d'annotations est maintenant juste après le poème principal, à l'intérieur de <main> -->
   <aside id="annotation-panel">
     <h2>Annotations</h2>
     <ul id="annotation-list"></ul>
   </aside>
+  </main>
+
 
   <!-- 4) Script d’initialisation des annotations -->
   <script>
