@@ -447,7 +447,7 @@
 
           <div class="stanza">
             <p>
-              De même grand merci aux examinateurs <br>
+              De même grand merci aux examinateurs <sup class="footnote" data-note="Et examinatrice, excusez l'exercice.">1</sup> <br>
               Pour le temps consacré, leur considération ; <br>
               Pour notre échange empli de leurs mille questions <br>
               Entre intérêt profond et retours très flatteurs.
@@ -469,7 +469,7 @@
             <p>
               Merci aux permanents d'avoir construit ces "lieux" : <br>
               Ludovic, Fabien, Ignacio, Wael, <br>
-              Jérôme, Emmanuel, Agnès, Nathanael <br>
+              Jérôme, Emmanuel, Agnès, Nathanael <sup class="footnote" data-note="Et ceux où je flanche quand ma mémoire penche.">2</sup> <br>
               On y était autant joyeux que sérieux !
             </p>
           </div>
@@ -691,7 +691,7 @@
           <div class="stanza">
             <p>
               Viennent dorénavant les mercis aux amies. <br>
-              Elles sauront très bien s'identifier : "Les filles" ! <br>
+              Elles sauront très bien s'identifier : "Les filles" ! <sup class="footnote" data-note="Les pièces rapportées sont aussi tolérées.">3</sup> <br>
               Malgré la discrétion dont je peux faire preuve, <br>
               Vous voir m'apportera toujours beaucoup de joie.
             </p>
@@ -845,12 +845,14 @@
           });
         }
         const annos = document.querySelectorAll(".annotated");
+        const footnotes = document.querySelectorAll(".footnote");
         const list = document.getElementById("annotation-list");
+        let annoIndex = 0;
         // Create annotation panel items and link them
         annos.forEach((el, i) => {
           let type = el.dataset.type;
           let note = el.dataset.note;
-          const annoId = el.dataset.annoId || `anno-${i}`;
+          const annoId = el.dataset.annoId || `anno-${annoIndex++}`;
           el.dataset.annoId = annoId;
           // Remap old types to new ones
           if (type === "comment") type = "référence";
@@ -869,6 +871,36 @@
           if (type === "poésie") color = "#28a745";
           li.style.borderColor = color;
           list.appendChild(li);
+        });
+        // Add footnotes to annotation panel
+        footnotes.forEach((el, i) => {
+          const note = el.dataset.note;
+          const annoId = el.dataset.annoId || `footnote-${i+1}`;
+          el.dataset.annoId = annoId;
+          const li = document.createElement("li");
+          li.textContent = note;
+          li.dataset.type = "footnote";
+          li.dataset.annoId = annoId;
+          li.style.borderColor = "#888";
+          li.style.fontStyle = "italic";
+          list.appendChild(li);
+        });
+        // Footnote hover/click sync
+        footnotes.forEach(el => {
+          const annoId = el.dataset.annoId;
+          el.style.cursor = "pointer";
+          el.addEventListener("mouseenter", () => {
+            const li = list.querySelector(`li[data-anno-id='${annoId}']`);
+            if (li) li.classList.add("active");
+          });
+          el.addEventListener("mouseleave", () => {
+            const li = list.querySelector(`li[data-anno-id='${annoId}']`);
+            if (li) li.classList.remove("active");
+          });
+          el.addEventListener("click", () => {
+            const li = list.querySelector(`li[data-anno-id='${annoId}']`);
+            if (li) li.scrollIntoView({behavior: "smooth", block: "center"});
+          });
         });
 
         // --- Scroll synchronization logic ---
@@ -892,7 +924,11 @@
             li.style.left = '0';
             li.style.right = '0';
             const annoId = li.dataset.annoId;
-            const textEl = document.querySelector(`.annotated[data-anno-id="${annoId}"]`);
+            // Find the corresponding text element: annotated span or footnote
+            let textEl = document.querySelector(`.annotated[data-anno-id="${annoId}"]`);
+            if (!textEl) {
+              textEl = document.querySelector(`.footnote[data-anno-id="${annoId}"]`);
+            }
             if (textEl) {
               // Get text position in viewport
               const textRect = textEl.getBoundingClientRect();
