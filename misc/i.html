@@ -201,8 +201,40 @@ aside#annotation-panel {
   height: 100%;
 }
 
-  </style>
+/* Style pour les quatrains du poème de Baudelaire */
+.main-poem-baudelaire {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 32px 24px 32px;
+  background: linear-gradient(135deg, #f7f3fa 0%, #f5f5f5 100%);
+  box-shadow: 0 6px 32px rgba(60, 30, 90, 0.10), 0 1px 0 #e0d6ec;
+  border-radius: 18px 18px 16px 16px;
+  border: none;
+  border-top: 3px solid #2a2a2c05;
+  border-bottom: 2px solid #4a76ee22;
+  transition: box-shadow 0.3s;
+}
+.main-poem-baudelaire:hover {
+  box-shadow: 0 12px 40px rgba(60, 30, 90, 0.16), 0 2px 0 #d1c3e6;
+}
 
+.quatrain-baudelaire {
+  max-width: 600px;
+  margin: 0 auto 1.2rem auto;
+  padding: 0.7rem 1.2rem;
+
+}
+.quatrain-baudelaire p {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.08rem;
+  color: #3a2c4a;
+  margin: 0;
+  line-height: 1.7;
+  text-align: left;
+}
+
+
+  </style>
 
 </head>
 
@@ -220,30 +252,56 @@ aside#annotation-panel {
       }
     })();
   </script>  -->
-
   <!-- 2) Contenu principal : ton poème -->
   <!-- Section pleine largeur : Une passante de Baudelaire -->
   <section id="baudelaire-intro" style="width:100%;background:#f5f5f5;padding:40px 0 24px 0;box-sizing:border-box;">
     <div style="max-width:700px;margin:0 auto;">
-      <h2 style="font-size:1.3rem;margin-bottom:1.2rem;color:#222;text-align:center;">Une passante <span style="font-size:1rem;color:#666;">— Charles Baudelaire</span></h2>
-      <div style="font-family:Georgia, 'Times New Roman', serif;font-size:1.05rem;line-height:1.7;color:#333;text-align:center;">
-        <p>La rue assourdissante autour de moi hurlait.<br>
-        Longue, mince, en grand deuil, douleur majestueuse,<br>
-        Une femme passa, d'une main fastueuse<br>
-        Soulevant, balançant le feston et l'ourlet ;</p>
-        <p>Agile et noble, avec sa jambe de statue.<br>
-        Moi, je buvais, crispé comme un extravagant,<br>
-        Dans son œil, ciel livide où germe l'ouragan,<br>
-        La douceur qui fascine et le plaisir qui tue.</p>
-        <p>Un éclair... puis la nuit ! — Fugitive beauté<br>
-        Dont le regard m'a fait soudainement renaître,<br>
-        Ne te verrai-je plus que dans l'éternité ?</p>
-        <p>Ailleurs, bien loin d'ici ! trop tard ! jamais peut-être !<br>
-        Car j'ignore où tu fuis, tu ne sais où je vais,<br>
-        Ô toi que j'eusse aimée, ô toi qui le savais !</p>
+      <h2 style="font-size:1.3rem;margin-bottom:1.2rem;color:#222;text-align:center;">À une passante <span
+          style="font-size:1rem;color:#666;">— Charles Baudelaire</span></h2>
+  
+      <div class="main-poem-baudelaire">
+  
+        <div class="quatrain-baudelaire">
+          <p>La rue assourdissante autour de moi hurlait. <br>
+            Longue, mince, en grand deuil, douleur majestueuse, <br>
+            Une femme passa, d’une main fastueuse <br>
+            Soulevant, balançant le feston et l’ourlet;
+          </p>
+        </div>
+  
+  
+        <div class="quatrain-baudelaire">
+          <p>
+            Agile et noble, avec sa jambe de statue. <br>
+            Moi, je buvais, crispé comme un extravagant, <br>
+            Dans son oeil, ciel livide où germe l’ouragan, <br>
+            La douceur qui fascine et le plaisir qui tue.
+          </p>
+        </div>
+  
+  
+        <div class="quatrain-baudelaire">
+          <p>
+            Un éclair… puis la nuit! – Fugitive beauté <br>
+            Dont le regard m’a fait soudainement renaître, <br>
+            Ne te verrai-je plus que dans l’éternité?
+          </p>
+        </div>
+  
+  
+        <div class="quatrain-baudelaire">
+          <p>
+            Ailleurs, bien loin d’ici! trop tard! jamais peut-être! <br>
+            Car j’ignore où tu fuis, tu ne sais où je vais, <br>
+            O toi que j’eusse aimée, ô toi qui le savais!
+          </p>
+        </div>
+  
       </div>
-    </div>
+  
+  
   </section>
+  
   <main>
 
 
