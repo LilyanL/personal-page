@@ -212,10 +212,12 @@ aside#annotation-panel {
   border: none;
   border-top: 3px solid #2a2a2c05;
   border-bottom: 2px solid #4a76ee22;
-  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, transform 0.2s;
+  cursor: pointer;
 }
 .main-poem-baudelaire:hover {
   box-shadow: 0 12px 40px rgba(60, 30, 90, 0.16), 0 2px 0 #d1c3e6;
+  transform: scale(1.015);
 }
 
 .quatrain-baudelaire {
@@ -819,6 +821,13 @@ aside#annotation-panel {
   <!-- 4) Script d’initialisation des annotations -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // Effet click sur le poème de Baudelaire
+      const baudelairePoem = document.querySelector('.main-poem-baudelaire');
+      if (baudelairePoem) {
+        baudelairePoem.addEventListener('click', () => {
+          window.open('Passante.webp', '_blank');
+        });
+      }
       const annos = document.querySelectorAll(".annotated");
       const list = document.getElementById("annotation-list");
       // Create annotation panel items and link them
