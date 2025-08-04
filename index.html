@@ -37,10 +37,18 @@
             <a href="/" class="logo">Lilyan Leblanc</a>
         </div>
         <div class="right">
-            <a href="https://www.linkedin.com/in/lilyan-leblanc" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/lilyan-leblanc" target="_blank" rel="noopener noreferrer" onclick="event.preventDefault();
+     const webUrl  = 'https://www.linkedin.com/in/lilyan-leblanc';
+     const appUrl  = 'linkedin://in/lilyan-leblanc';
+     // Try app first
+     window.location = appUrl;
+     // If after 800ms we’re still here, go to web
+     setTimeout(() => { window.location = webUrl; }, 800);
+   ">
                 <i class="fa-brands fa-linkedin"></i>
                 <span class="tooltip">LinkedIn</span>
             </a>
+
             <a href="https://scholar.google.com/citations?user=J-FB9BEAAAAJ&hl=fr" target="_blank"
                 rel="noopener noreferrer">
                 <i class="fa-brands fa-google-scholar"></i>
