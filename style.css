@@ -209,7 +209,29 @@ nav .right a span {
         gap: 8px;
         border-radius: 0;
         transform: none;
+
+
+        background-color: rgba(255, 255, 255, 0.5);
+        /* blanc translucide */
+        backdrop-filter: blur(10px);
+        /* flou fond */
+        -webkit-backdrop-filter: blur(10px);
+        /* Safari */
+
+        box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
     }
+
+    .section-navbar a.active {
+    background: #fff;
+    color: #4a76ee;
+    box-shadow: 0 2px 12px rgba(74, 118, 238, 0.18), 0 0 0 2px #4a76ee33;
+    z-index: 20;
+    padding: 27px 5px 25px 5px;
+    gap: 18px;
+    border-radius: 0 18px 0 18px;
+    width: 70px;
+}
 
     .section-navbar a {
         margin-bottom: 0;
