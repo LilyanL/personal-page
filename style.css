@@ -1356,6 +1356,11 @@ a[href*="h2020faros.eu"]:hover {
         margin-left: 0;
     }
 
+    #back-to-top {
+        right: 5px;
+        
+    }
+
 }
 
 
