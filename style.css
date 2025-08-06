@@ -185,7 +185,7 @@ nav .right a span {
     box-shadow: 0 2px 8px rgba(74, 118, 238, 0.18);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 910px) {
     .section-navbar {
         width: 54px;
         padding: 12px 0;
@@ -194,6 +194,10 @@ nav .right a span {
     .section-navbar a {
         width: 38px;
         height: 38px;
+        font-size: 18px;
+    }
+
+    .navbar .right a {
         font-size: 18px;
     }
 }
@@ -1105,7 +1109,7 @@ a[href*="h2020faros.eu"]:hover {
 }
 
 .footer-text {
-    font-size: 18px;
+    font-size: 24px;
     color: #1a1c20;
     font-weight: 500;
     letter-spacing: 1px;
@@ -1176,12 +1180,17 @@ a[href*="h2020faros.eu"]:hover {
 
 /* ====================================== */
 /* REACTIVE DESIGN */
-@media (max-width: 850px) {
+@media (max-width: 860px) {
 
     /* SECTION 1: HERO */
 
     .hero .text h2 {
         font-size: 35px;
+    }
+
+    /* SECTION 1: HERO */
+    .hero {
+        flex-direction: column;
     }
 
 }
@@ -1191,10 +1200,7 @@ a[href*="h2020faros.eu"]:hover {
 
 @media (max-width: 740px) {
 
-    /* SECTION 1: HERO */
-    .hero {
-        flex-direction: column-reverse;
-    }
+    
 
     .hero .headshot img {
         width: 250px;
